@@ -21,6 +21,7 @@ class CreateFilm extends Migration
             $table -> text('opis');
             $table -> year('godina');
             $table -> string('reziser');
+			$table -> text('path');
             $table -> string('glavna_uloga');
             $table->timestamps();
         });
