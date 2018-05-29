@@ -21,6 +21,8 @@ class CreateZaposleni extends Migration
             $table -> string('ime');
             $table -> string('prezime');
             $table -> string('jmbg', 13);
+
+            $table->rememberToken();
             $table->timestamps();
 
             // foreign keys

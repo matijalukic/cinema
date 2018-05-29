@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Film;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -9,15 +10,13 @@ class HomeController extends Controller
     /**
      * Prikazuje pocetnu stranicu
      */
-    public function index( Request $request, $ime = 'Mijusko' )
+    public function index()
     {
-    	$filmovi = ["Ko to tamo peva", "Lepa sela lepo gore", "Inception", "Ringeraja"]; 
+    	$filmovi = Film::all();
 
 
         return view('welcome', [
-        	'filmovi' => $filmovi,
-        	'ime' => $ime,
-        	'godine' => $request -> godine,
+        	'filmovi' => $filmovi
         ]);
     }
 }
