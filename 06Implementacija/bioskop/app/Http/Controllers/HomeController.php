@@ -9,8 +9,15 @@ class HomeController extends Controller
     /**
      * Prikazuje pocetnu stranicu
      */
-    public function index()
+    public function index( Request $request, $ime = 'Mijusko' )
     {
-        return view('welcome');
+    	$filmovi = ["Ko to tamo peva", "Lepa sela lepo gore", "Inception", "Ringeraja"]; 
+
+
+        return view('welcome', [
+        	'filmovi' => $filmovi,
+        	'ime' => $ime,
+        	'godine' => $request -> godine,
+        ]);
     }
 }
