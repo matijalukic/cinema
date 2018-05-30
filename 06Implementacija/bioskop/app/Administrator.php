@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Administrator extends Model
 {
-    protected $table = "film";
+    protected $table = "administrator";
 
 }

@@ -74,7 +74,7 @@
             <div class="col-sm-6">
                 <div class="input-group mb-2">
 
-                    <input type="text" name="trajanje" class="form-control" id="trajanje" value="old('trajanje')" placeholder="Trajanje">
+                    <input type="text" name="trajanje" class="form-control" id="trajanje" value="{{ old('trajanje') }}" placeholder="Trajanje">
                     <div class="input-group-append">
                         <div class="input-group-text">min</div>
                     </div>

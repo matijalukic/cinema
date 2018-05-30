@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Filmovi;
 
 use App\Film;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class NoviFilmRequest extends FormRequest
@@ -28,7 +29,7 @@ class NoviFilmRequest extends FormRequest
             'naziv' => 'required|string|max:20',
             'opis' => 'required|string',
             'zanr' => 'required|array|min:1',
-            'path' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'path' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'reditelj' => 'required|string',
             'glavna_uloga' => 'required|string',
             'godina' => 'required|digits:4',
@@ -50,7 +51,8 @@ class NoviFilmRequest extends FormRequest
             'trajanje' => $this -> trajanje,
             'path' => $slika,
             'zanr' => implode(",", $this -> zanr),
-
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
     }

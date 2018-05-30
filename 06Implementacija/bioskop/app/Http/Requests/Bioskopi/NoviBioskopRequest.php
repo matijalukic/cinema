@@ -26,7 +26,7 @@ class NoviBioskopRequest extends FormRequest
     {
         return [
             'naziv' => 'required|string|max:20',
-			'adresa' => 'required|string|max30',
+			'adresa' => 'required|string|max:30',
         ];
     }
 
