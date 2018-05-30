@@ -19,6 +19,7 @@ class CreateProjekcija extends Migration
             $table->unsignedInteger('repertoar_id');
             $table -> unsignedInteger('bioskop_id');
             $table->integer('broj_sale');
+            $table ->integer('cena');
             $table->dateTime('vreme');
             $table->integer('broj_mesta');
             $table->timestamps();

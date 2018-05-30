@@ -5,6 +5,8 @@ use App\Film;
 use App\Http\Requests\Bioskopi\NoviBioskopRequest;
 use App\Http\Requests\Filmovi\IzmenaFilmaRequest;
 use App\Http\Requests\Filmovi\NoviFilmRequest;
+use App\Korisnik;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 
@@ -68,4 +70,5 @@ class AdministratorController extends Controller
         }
         return redirect() -> back();
     }
+
 }
