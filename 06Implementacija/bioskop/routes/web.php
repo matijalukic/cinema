@@ -30,4 +30,6 @@ Route::post('film/dodaj', 'AdministratorController@unosFilma') -> name('administ
 Route::get('bioskop/dodaj', 'AdministratorController@dodavanjeBioskopa') -> name('administrator.bioskop.dodavanje');
 Route::post('bioskop/dodaj', 'AdministratorController@unosBioskopa') -> name('administrator.bioskop.unos');
 
-Route::get('film/izmeni', 'AdministratorController@izmenaFilma') -> name('administrator.film.izmena');
+Route::get('film/izmeni/{id}', 'AdministratorController@izmenaFilma') -> name('administrator.film.izmena');
+
+Route::post('film/izmeni', 'AdministratorController@izmenaFilmaPost') -> name('administrator.film.izmena.post');
