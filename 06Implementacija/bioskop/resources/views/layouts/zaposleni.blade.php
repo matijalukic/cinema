@@ -16,7 +16,7 @@
 
 <body>
 
-@include('partials.administratornavbar')
+@include('partials.zaposleninavbar')
 
 <div class="container mt-5">
     @yield('content')

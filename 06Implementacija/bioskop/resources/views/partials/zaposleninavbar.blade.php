@@ -16,5 +16,24 @@
                 <a class="nav-link" href="izbaci_iz_repertoara.html">Izbaci iz repertoara</a>
             </li>
         </ul>
+
+        <ul class="navbar-nav">
+
+            @if(auth() -> check())
+                <li class="nav-item text-white">
+                    <a class="nav-link disabled text-white">Zdravo, {{ auth() -> user() -> username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('zaposleni.logout') }}">Odjavi se</a>
+                </li>
+            {{-- Nisu ulogovani --}}
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('zaposleni.login') }}">Login</a>
+                </li>
+            @endif
+        </ul>
+
+
     </div>
 </nav>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Zaposleni\LoginRequest;
 use App\Korisnik;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KorisnikController extends Controller
 {
@@ -43,4 +45,7 @@ class KorisnikController extends Controller
 
         return redirect()->back();
     }
+
+
+
 }

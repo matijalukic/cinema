@@ -1,4 +1,4 @@
-@extends('layouts.menadzer')
+@extends('layouts.zaposleni')
 
 
 @section('title')Dodaj bioskop - Administrator @stop

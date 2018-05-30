@@ -16,7 +16,7 @@ class CreateZaposleni extends Migration
         Schema::create('zaposleni', function(Blueprint $table){
             $table -> increments('id');
             $table -> unsignedInteger('bioskop_id') -> nullable();
-            $table -> string('username', 30);
+            $table -> string('username', 30) -> unique();
             $table -> string('password');
             $table -> string('ime');
             $table -> string('prezime');

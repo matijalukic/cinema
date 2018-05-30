@@ -22,5 +22,23 @@
                 <a class="nav-link" href="Termini_filma.html">Lista termina filma za odredjeni bioskop</a>
             </li>
         </ul>
+
+
+        <ul class="navbar-nav">
+
+            @if(auth() -> check())
+                <li class="nav-item text-white">
+                    <a class="nav-link disabled text-white">Zdravo, {{ auth() -> user() -> username ?? auth() -> user() -> korime }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('zaposleni.logout') }}">Odjavi se</a>
+                </li>
+                {{-- Nisu ulogovani --}}
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('zaposleni.login') }}">Login</a>
+                </li>
+            @endif
+        </ul>
     </div>
 </nav>
