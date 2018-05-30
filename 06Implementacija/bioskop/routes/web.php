@@ -12,3 +12,10 @@
 */
 // Home routes
 Route::get('/', 'HomeController@index') -> name('home');
+
+
+// Rute za korisnika
+
+Route::get('registracija_korisnika', 'KorisnikController@registracija') ->name('registracija');
+
+Route::post('registracija_korisnika', 'KorisnikController@registracijaPost')->name('registracija.post');
