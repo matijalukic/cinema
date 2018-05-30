@@ -19,3 +19,11 @@ Route::get('/', 'HomeController@index') -> name('home');
 Route::get('registracija_korisnika', 'KorisnikController@registracija') ->name('registracija');
 
 Route::post('registracija_korisnika', 'KorisnikController@registracijaPost')->name('registracija.post');
+
+
+
+/**
+ * Administratorske rute
+ */
+Route::get('film/dodaj', 'AdministratorController@dodavanjeFilma') -> name('administrator.film.dodavanje');
+Route::post('film/dodaj', 'AdministratorController@unosFilma') -> name('administrator.film.unos');
