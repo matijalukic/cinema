@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Projekcija extends Model
 {
-    protected $table = "film";
+    protected $table = "projekcija";
 
 }
