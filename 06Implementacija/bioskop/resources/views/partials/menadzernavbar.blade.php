@@ -6,14 +6,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.film.dodavanje') !== false) active @endif">
-                <a class="nav-link " href="{{ route('administrator.film.dodavanje') }}">Dodaj film</a>
+            <li class="nav-item @if(strpos(Route::currentRouteName(), 'menadzer.projekcija.dodavanje') !== false) active @endif">
+                <a class="nav-link" href="{{ route('menadzer.projekcija.dodavanje') }}">Dodaj film u repertoar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="dodaj_u_repertoar.html">Dodaj film u repertoar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="izbaci_iz_repertoara.html">Izbaci iz repertoara</a>
+                <a class="nav-link" href="dodaj_u_repertoar.html">Repetoar bioskopa</a>
             </li>
         </ul>
     </div>
