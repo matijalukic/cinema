@@ -27,3 +27,5 @@ Route::post('registracija_korisnika', 'KorisnikController@registracijaPost')->na
  */
 Route::get('film/dodaj', 'AdministratorController@dodavanjeFilma') -> name('administrator.film.dodavanje');
 Route::post('film/dodaj', 'AdministratorController@unosFilma') -> name('administrator.film.unos');
+Route::get('bioskop/dodaj', 'AdministratorController@dodavanjeBioskopa') -> name('administrator.bioskop.dodavanje');
+Route::post('bioskop/dodaj', 'AdministratorController@unosBioskopa') -> name('administrator.bioskop.unos');

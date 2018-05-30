@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Film;
+use App\Bioskop;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,11 +12,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	$filmovi = Film::all();
-
+    	$bioskopi = Bioskop::all();
 
         return view('welcome', [
-        	'filmovi' => $filmovi
+        	'bioskopi' => $bioskopi
         ]);
     }
+	
 }

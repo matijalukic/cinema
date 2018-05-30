@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bioskop extends Model
 {
-    protected $table = "film";
+    protected $table = "bioskop";
+	protected $fillable = ['naziv' , 'adresa', 'created_at', 'updated_at'];
 
 }

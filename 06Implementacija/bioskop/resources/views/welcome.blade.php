@@ -6,13 +6,14 @@
 @section('content')
 
 	<h1>Bioskopi</h1>
-
-
-	<h3>Filmovi:</h3>
+		
 	<ul>
-		@foreach($filmovi as $film)
-			<li>{{ $film -> naziv }}</li>
+		@foreach($bioskopi as $bioskop)
+			<div>
+				<li>{{ $bioskop -> naziv}}</li>
+			</div>
 		@endforeach
 
 	</ul>
+	
 @stop
