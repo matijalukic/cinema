@@ -45,6 +45,7 @@ Route::get('zaposleni/brisi', 'AdministratorController@brisiNalog') ->name('admi
 Route::post('zaposleni/brisi', 'AdministratorController@brisiNalogPost') ->name('administrator.zaposleni.brisi.post');
 
 Route::get('zaposleni/brisisve', 'AdministratorController@brisiSve') ->name('administrator.zaposleni.brisisve');
+Route::post('zaposleni/brisisve', 'AdministratorController@brisiSvePost') ->name('administrator.zaposleni.brisisve.post');
 
 
 /**

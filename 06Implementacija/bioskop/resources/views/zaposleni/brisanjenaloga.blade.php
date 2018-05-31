@@ -26,7 +26,7 @@
             <div class="col-sm-10">
                 <select multiple class="form-control" name="korisnik[]" id="exampleFormControlSelect2" size="7">
                     @foreach($korisnici as $korisnik)
-                        <option value="{{$korisnik->id}}">{{$korisnik->ime}} {{$korisnik->prezime}} - {{$korisnik->korime}}</option>
+                        <option value="{{$korisnik->id}}">{{$korisnik->ime}} {{$korisnik->prezime}} - {{$korisnik->username}}</option>
                     @endforeach
 
                 </select>
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-10 text-center">
-                <button type="submit" class="btn btn-danger">Ukloni</button>
+                <button type="submit" class="btn btn-danger">Obrisi</button>
             </div>
         </div>
     </form>
