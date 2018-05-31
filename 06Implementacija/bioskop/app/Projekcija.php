@@ -8,4 +8,33 @@ class Projekcija extends Model
 {
     protected $table = "projekcija";
 
+    /**
+     * Vraca bioskop u kome se odrzava projekcija
+     *
+     * @return \App\Bioskop
+     */
+    public function bioskop()
+    {
+        return $this -> hasOne(\App\Bioskop::class, 'id', 'bioskop_id');
+    }
+
+    /**
+     * Vraca objekat filma za koji se odrzava projekcija
+     *
+     * @return \App\Film
+     */
+    public function film()
+    {
+        return $this -> hasOne(\App\Film::class, 'id', 'film_id');
+    }
+
+    /**
+     * Zaposelni koji je uneo projekciju
+     *
+     * @return \App\Zaposleni
+     */
+    public function zaposleni()
+    {
+        return $this -> hasOne(\App\Zaposleni::class, 'id', 'zaposleni_id');
+    }
 }

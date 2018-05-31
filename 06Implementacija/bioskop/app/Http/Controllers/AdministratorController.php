@@ -19,11 +19,21 @@ class AdministratorController extends Controller
     {
         return view('zaposleni.dodavanjefilma');
     }
-	
+
+    /**
+     * Prikazivanje formulara za dodavanje bioskopa
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
 	public function dodavanjeBioskopa(){
 		return view('zaposleni.dodavanjebioskopa');
 	}
 
+
+    /**
+     * Perzistiranje filma kroz request
+     * @param NoviFilmRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function unosFilma(NoviFilmRequest $request)
     {
         try{
@@ -36,7 +46,13 @@ class AdministratorController extends Controller
 
         return redirect() -> back();
     }
-	
+
+    /**
+     * Perzistiranje novog bioskopa
+     *
+     * @param NoviBioskopRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
 	public function unosBioskopa(NoviBioskopRequest $request)
     {
         try{
@@ -50,6 +66,12 @@ class AdministratorController extends Controller
         return redirect() -> back();
     }
 
+    /**
+     * Izmena filma za dati id
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function izmenaFilma($id)
     {
         $film = Film::findOrFail($id);
@@ -59,6 +81,12 @@ class AdministratorController extends Controller
         ]);
     }
 
+    /**
+     * Perzistiranje izmene filma u bazu
+     *
+     * @param IzmenaFilmaRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function izmenaFilmaPost(IzmenaFilmaRequest $request)
     {
         try{

@@ -6,15 +6,32 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+
+            {{-- Administratorski linkovi --}}
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.film.dodavanje') !== false) active @endif">
                 <a class="nav-link " href="{{ route('administrator.film.dodavanje') }}">Dodaj film</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="dodaj_u_repertoar.html">Dodaj film u repertoar</a>
+                <a href="#" class="nav-link">Filmovi</a>
+            </li>
+            <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.bioskop.dodavanje') !== false) active @endif">
+                <a href="{{ route('administrator.bioskop.dodavanje') }}" class="nav-link">Dodaj bioskop</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="izbaci_iz_repertoara.html">Izbaci iz repertoara</a>
+                <a href="#" class="nav-link">Bioskopi</a>
             </li>
+
+            {{-- Menadzerski Linkovi --}}
+            <li class="nav-item @if(strpos(Route::currentRouteName(), 'menadzer.projekcija.dodavanje') !== false) active @endif">
+                <a class="nav-link" href="{{ route('menadzer.projekcija.dodavanje') }}">Dodaj projekciju</a>
+            </li>
+            <li class="nav-item @if(strpos(Route::currentRouteName(), 'menadzer.projekcije') !== false) active @endif">
+                <a class="nav-link" href="{{ route('menadzer.projekcije') }}">Projekcije bioskopa</a>
+            </li>
+
+            {{-- Salterski Sluzbenik linkovi --}}
+
+
         </ul>
 
         <ul class="navbar-nav">

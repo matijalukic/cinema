@@ -10,9 +10,9 @@
     @include('partials.success')
     @include('partials.errors')
 
+    @if($filmovi -> isNotEmpty())
     <form action="{{ route('menadzer.projekcija.dodavanje.post') }}" method="POST">
         {{ csrf_field() }}
-        <input type="hidden" name="repertoar_id" value="{{ $repertoar -> id }}">
         <div class="form-group row justify-content-center">
             <label for="naslovfilma" class="col-sm-2 col-form-label">Film</label>
             <div class="col-sm-6">
@@ -81,5 +81,8 @@
             </div>
         </div>
     </form>
+    @else
+        <div class="alert alert-warning">Trenutno ne postoje filmovi u bazi, da bi dodali projekciju moraju postojati filmovi</div>
+    @endif
 
 @stop

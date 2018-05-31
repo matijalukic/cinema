@@ -27,4 +27,13 @@ class Zaposleni extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relacija bioskop u kome radi Menadzer ili Sluzbenik
+     * @return \App\Bioskop? nullable
+     */
+    public function bioskop()
+    {
+        return $this -> hasOne(\App\Bioskop::class, 'id', 'bioskop_id');
+    }
 }

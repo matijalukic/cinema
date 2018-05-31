@@ -47,3 +47,5 @@ Route::post('film/izmeni', 'AdministratorController@izmenaFilmaPost') -> name('a
  */
 Route::get('projekcija/dodaj',  'MenadzerController@dodajProjekciju') -> name('menadzer.projekcija.dodavanje');
 Route::post('projekcija/dodaj',  'MenadzerController@dodajProjekcijuPost') -> name('menadzer.projekcija.dodavanje.post');
+Route::get('projekcije' ,   'MenadzerController@projekcije') -> name('menadzer.projekcije');
+Route::get('projekcija/obrisi/{id}' ,   'MenadzerController@obrisiProjekciju') -> name('menadzer.projekcija.obrisi');

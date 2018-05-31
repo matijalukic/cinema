@@ -16,7 +16,7 @@ class CreateProjekcija extends Migration
         Schema::create('projekcija', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('film_id');
-            $table->unsignedInteger('repertoar_id');
+            $table->unsignedInteger('zaposleni_id');
             $table -> unsignedInteger('bioskop_id');
             $table->integer('broj_sale');
             $table ->integer('cena');
@@ -26,7 +26,7 @@ class CreateProjekcija extends Migration
 
             // foreign keys
             $table->foreign('film_id')->references('id')->on('film')->onDelete('cascade');
-            $table->foreign('repertoar_id')->references('id')->on('repertoar');
+            $table->foreign('zaposleni_id')->references('id')->on('zaposleni');
             $table->foreign('bioskop_id')->references('id')->on('bioskop');
         });
     }

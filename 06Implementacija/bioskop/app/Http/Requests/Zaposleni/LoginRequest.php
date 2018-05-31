@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Zaposleni;
 
+use App\Exceptions\CustomException;
 use App\Zaposleni;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -35,18 +36,18 @@ class LoginRequest extends FormRequest
 
     public function persist()
     {
-
-        if( // proveri da li moze da se uloguje
-            Auth::attempt([
-            'username' => $this -> username,
-            'password' => $this -> password,
-            ])
-        )
+        // proveri da li moze da se uloguje
+        if( Auth::attempt([     'username' => $this -> username,
+                                'password' => $this -> password, ] )
+            )
         {
             // update updated at timestamp
             $zaposleni = Auth::user();
             $zaposleni -> updated_at = Carbon::now();
             $zaposleni -> save();
         }
+        else
+            throw new CustomException('Username ili password nisu ispravno uneti!');
+
     }
 }

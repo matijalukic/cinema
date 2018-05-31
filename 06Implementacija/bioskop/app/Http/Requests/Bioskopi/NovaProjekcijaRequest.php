@@ -29,7 +29,6 @@ class NovaProjekcijaRequest extends FormRequest
     public function rules()
     {
         return [
-            'repertoar_id' => 'required|exists:repertoar,id',
             'film_id' => 'required|exists:film,id',
             'termin' => 'required|date_format:"H:i"',
             'pocetak' => 'required|date',
@@ -42,26 +41,22 @@ class NovaProjekcijaRequest extends FormRequest
 
     public function persist()
     {
-
-        $repertoar = Repertoar::find($this -> repertoar_id);
         $film = Film::find($this -> film_id);
         $termin = Carbon::parse($this -> termin);
         $startVreme = Carbon::parse($this -> pocetak);
         $krajVreme = Carbon::parse($this -> kraj);
 
 
-        // @todo dohvati bioskop na osnovu ulogovanog menadzera
-        $bioskop = Bioskop::find(1);
 
         // unosimo za sve dane
-        while($startVreme <= Carbon::parse($this -> kraj)){
+        while($startVreme <= $krajVreme){
             // postavi vreme za svaku projekciju
             $vremeProjekcije = $startVreme -> setTime($termin -> hour, $termin -> minute);
 
             $novaProjekcija = new Projekcija;
             $novaProjekcija -> film_id = $film -> id;
-            $novaProjekcija -> repertoar_id = $repertoar -> id;
-            $novaProjekcija -> bioskop_id = $bioskop -> id;
+            $novaProjekcija -> zaposleni_id = auth() -> user() -> id;
+            $novaProjekcija -> bioskop_id = auth() -> user() -> bioskop -> id;
             $novaProjekcija -> broj_sale = $this -> sala;
             $novaProjekcija -> broj_mesta = $this -> mesta;
             $novaProjekcija -> cena = $this -> cena;
