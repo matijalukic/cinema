@@ -17,7 +17,7 @@ class Korisnik extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'korime', 'email', 'password',
+        'username', 'email', 'password',
     ];
 
     /**

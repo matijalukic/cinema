@@ -26,19 +26,37 @@
 
         <ul class="navbar-nav">
 
-            @if(auth() -> check())
-                <li class="nav-item text-white">
-                    <a class="nav-link disabled text-white">Zdravo, {{ auth() -> user() -> username ?? auth() -> user() -> korime }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('zaposleni.logout') }}">Odjavi se</a>
-                </li>
-                {{-- Nisu ulogovani --}}
+            @ulogovan
+                {{-- Ulogovan kao obican korisnik --}}
+                @korisnik
+                    <li class="nav-item text-white">
+                        <a class="nav-link disabled text-white">Zdravo, {{ auth('korisnici') -> user() -> username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('korisnik.logout') }}">Odjavi se</a>
+                    </li>
+                @endkorisnik
+
+                @zaposleni
+                    <li class="nav-item text-warning">
+                        <a class="nav-link disabled text-warning">Zdravo, {{ auth() -> user() -> username }}</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('zaposleni.logout') }}">Odjavi se</a>
+                    </li>
+                @endzaposleni
+
+
+            {{-- Nisu ulogovani --}}
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('zaposleni.login') }}">Login</a>
+                    <a class="nav-link" href="{{ route('korisnik.login') }}">Prijava</a>
                 </li>
-            @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('registracija') }}">Registracija</a>
+                </li>
+            @endulogovan
         </ul>
     </div>
 </nav>

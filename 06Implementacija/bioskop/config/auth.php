@@ -40,10 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+        ],
+        'korisnici' => [
+            'driver' => 'session',
+            'provider' => 'korisnik'
         ],
     ],
 
@@ -68,6 +71,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Zaposleni::class,
+        ],
+        'korisnik' => [
+            'driver' => 'eloquent',
+            'model' => App\Korisnik::class,
         ],
 
         // 'users' => [

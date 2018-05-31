@@ -6,7 +6,10 @@
 @section('content')
 
     <h1 class="my-2 text-center">Registracija</h1>
-    <h3 class="text-center"> Molimo vas popunite sva polja! </h3>
+    <h4 class="text-center"> Molimo vas popunite sva polja! </h4>
+
+    @include('partials.errors')
+    @include('partials.success')
 
     <form method="post" action="{{ route('registracija.post') }}">
         {{ csrf_field() }}

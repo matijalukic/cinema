@@ -49,7 +49,7 @@ class MenadzerController extends Controller
     public function projekcije()
     {
         $bioskop = Bioskop::findOrFail(auth() -> user() -> bioskop_id);
-        $projekcijeBioskopa = Projekcija::where('bioskop_id', $bioskop -> id) -> orderByDesc('vreme') -> get();
+        $projekcijeBioskopa = Projekcija::where('bioskop_id', $bioskop -> id) -> orderByDesc('vreme') -> paginate(20);
 
         return view('zaposleni.projekcije', [
             'bioskop' => $bioskop,

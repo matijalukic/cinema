@@ -25,11 +25,15 @@ class ZaposleniController extends Controller
         try{
             $request -> persist();
             session() -> flash('success', 'Uspešna prijava!');
+            // Uspesno logovanje
+            return redirect() -> route('administrator.film.dodavanje');
         }
         catch(\Exception $e){
             session() -> flash('error', $e -> getMessage());
         }
-        return redirect() -> route('administrator.film.dodavanje');
+
+        // return back u slucaju greske
+        return redirect() -> back();
     }
 
     /**

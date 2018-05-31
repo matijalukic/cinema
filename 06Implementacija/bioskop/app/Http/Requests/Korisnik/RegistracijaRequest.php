@@ -24,15 +24,14 @@ class RegistracijaRequest extends FormRequest
     public function rules()
     {
         return [
-
-        'ime' => 'required|string',
-        'prezime' => 'required|string',
-        'brtel' => 'required|string',
-        'adresa' => 'required|string',
-        'email' => 'required|email',
-        'username' => 'required|string|unique:korisnik, korime',
-        'jmbg' => 'required|string',
-        'password' => 'required|string|confirmed',
+            'ime' => 'required|string',
+            'prezime' => 'required|string',
+            'brtel' => 'required|string',
+            'adresa' => 'required|string',
+            'email' => 'required|email',
+            'username' => 'required|string|unique:korisnik,username',
+            'jmbg' => 'required|string',
+            'password' => 'required|string|confirmed',
         ];
     }
 }

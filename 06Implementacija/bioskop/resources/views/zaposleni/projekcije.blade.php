@@ -39,6 +39,8 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{ $projekcije -> links('partials.paginate') }}
     @else
         <div class="alert alert-warning">Trenutno ne postoje projekcije za vaš bioskop!</div>
     @endif
