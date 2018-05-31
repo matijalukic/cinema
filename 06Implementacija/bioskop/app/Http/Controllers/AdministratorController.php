@@ -6,6 +6,7 @@ use App\Http\Requests\Bioskopi\NoviBioskopRequest;
 use App\Http\Requests\Filmovi\IzmenaFilmaRequest;
 use App\Http\Requests\Filmovi\NoviFilmRequest;
 use App\Http\Requests\zaposleni\BrisanjeNalogaRequest;
+use App\Http\Requests\Zaposleni\BrisanjeSvihNalogaRequest;
 use App\Korisnik;
 use App\Zaposleni;
 use Carbon\Carbon;
@@ -123,4 +124,20 @@ class AdministratorController extends Controller
         return redirect() -> back();
     }
 
+    public function brisiSve()
+    {
+        return view('zaposleni.brisanjesvihnaloga');
+    }
+
+    public function brisiSvePost(BrisanjeSvihNalogaRequest $request)
+    {
+        try{
+            $br = $request -> persist();
+            session() -> flash('success', "Uspešno ste obrisali $br zastarela naloga!");
+        }
+        catch(\Exception $e){
+            session() -> flash('error', $e -> getMessage());
+        }
+        return redirect() -> back();
+    }
 }
