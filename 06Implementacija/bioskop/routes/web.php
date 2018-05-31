@@ -41,6 +41,11 @@ Route::get('film/izmeni/{id}', 'AdministratorController@izmenaFilma') -> name('a
 
 Route::post('film/izmeni', 'AdministratorController@izmenaFilmaPost') -> name('administrator.film.izmena.post');
 
+Route::get('zaposleni/brisi', 'AdministratorController@brisiNalog') ->name('administrator.zaposleni.brisi');
+Route::post('zaposleni/brisi', 'AdministratorController@brisiNalogPost') ->name('administrator.zaposleni.brisi.post');
+
+Route::get('zaposleni/brisisve', 'AdministratorController@brisiSve') ->name('administrator.zaposleni.brisisve');
+
 
 /**
  * Menadzerske rute
