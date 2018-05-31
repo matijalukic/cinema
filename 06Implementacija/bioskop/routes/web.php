@@ -28,7 +28,12 @@ Route::get('login/zaposleni',  'ZaposleniController@loginZaposleni') -> name("za
 Route::post('login/zaposleni',  'ZaposleniController@zaposleniLogin') -> name("zaposleni.login.post");
 Route::get('logout/zaposleni',  'ZaposleniController@logout') -> name("zaposleni.logout");
 
-
+/**
+ * Rute korisnika
+ */
+Route::get('login/korisnik',  'KorisnikController@loginKorisnik') -> name("korisnik.login");
+Route::post('login/korisnik',  'KorisnikController@korisnikLogin') -> name("korisnik.login.post");
+Route::get('logout/korisnik',  'KorisnikController@logout') -> name("korisnik.logout");
 /**
  * Administratorske rute
  */
