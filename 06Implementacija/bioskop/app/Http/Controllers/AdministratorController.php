@@ -104,8 +104,8 @@ class AdministratorController extends Controller
     public function brisiSvePost(BrisanjeSvihNalogaRequest $request)
     {
         try{
-            $request -> persist();
-            session() -> flash('success', 'Uspešno ste obrisali sve zastarele naloge!');
+            $br = $request -> persist();
+            session() -> flash('success', "Uspešno ste obrisali $br zastarela naloga!");
         }
         catch(\Exception $e){
             session() -> flash('error', $e -> getMessage());

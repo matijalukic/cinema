@@ -32,7 +32,11 @@ class BrisanjeSvihNalogaRequest extends FormRequest
     public function persist()
     {
         $korisniciZaBrisanje = Korisnik::where('updated_at', '<', Carbon::now() -> subDays($this->dana)) -> get();
-
-        foreach ($korisniciZaBrisanje as $korisnik) $korisnik -> delete();
+        $br=0;
+        foreach ($korisniciZaBrisanje as $korisnik){
+            $br++;
+            $korisnik -> delete();
+        }
+        return $br;
     }
 }

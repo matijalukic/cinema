@@ -15,7 +15,7 @@
             <div class="col-sm-10">
                 <select multiple class="form-control" name="zaposlen[]" id="exampleFormControlSelect2" size="5">
                     @foreach($zaposleni as $zaposlen)
-                        <option value="{{$zaposlen->id}}">{{$zaposlen->ime}} {{$zaposlen->prezime}} - {{$zaposlen->username}}</option>
+                        <option value="{{$zaposlen->id}}">{{$zaposlen->ime}} {{$zaposlen->prezime}} - {{$zaposlen->username}} - Poslednje koriscen: {{$zaposlen->updated_at}}</option>
                     @endforeach
 
                 </select>
@@ -26,7 +26,7 @@
             <div class="col-sm-10">
                 <select multiple class="form-control" name="korisnik[]" id="exampleFormControlSelect2" size="7">
                     @foreach($korisnici as $korisnik)
-                        <option value="{{$korisnik->id}}">{{$korisnik->ime}} {{$korisnik->prezime}} - {{$korisnik->username}}</option>
+                        <option value="{{$korisnik->id}}">{{$korisnik->ime}} {{$korisnik->prezime}} - {{$korisnik->username}} - Poslednje koriscen: {{$korisnik->updated_at}}</option>
                     @endforeach
 
                 </select>
