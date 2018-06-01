@@ -27,6 +27,9 @@
             <li class="nav-item @if(Route::currentRouteName() == 'administrator.zaposleni.brisi') active @endif">
                 <a href="{{ route('administrator.zaposleni.brisi') }}" class="nav-link">Obriši naloge</a>
             </li>
+            <li class="nav-item @if(Route::currentRouteName() == 'administrator.kreirajnalog') active @endif">
+                <a href="{{ route('administrator.kreirajnalog') }}" class="nav-link">Dodaj nalog</a>
+            </li>
             @endadministrator
 
             {{-- Menadzerski Linkovi --}}
