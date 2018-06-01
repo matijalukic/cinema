@@ -10,8 +10,20 @@ use App\Repertoar;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 
+/**
+ * Realizuje sve operacije dostupne menadzeru
+ *
+ * Class MenadzerController
+ * @package App\Http\Controllers
+ */
 class MenadzerController extends Controller
 {
+    public function __construct()
+    {
+        $this -> middleware('menadzer');
+    }
+
+
     /**
      * Ispisuje formular za dodavanje projekcije
      */

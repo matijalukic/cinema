@@ -12,14 +12,28 @@ use Illuminate\Support\Facades\Hash;
 
 class KorisnikController extends Controller
 {
+    public function __construct()
+    {
+        // korisnik mora biti ulogovan da bi izvrsio operacije osim registracije
+        $this -> middleware('korisnik') ->except(['registracija', 'registracijaPost']);
+        // Korisnik ne sme biti ulogovan da bi se registrovao
+        $this -> middleware('gost') -> only(['registracija', 'registracijaPost']);
+    }
 
-// Metoda za prikaz formulara za registraciju
-
+    /**
+     * Metoda za prikaz formulara za registraciju
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function registracija(){
         return view('korisnik.registracija');
     }
-// Metoda za obradjivanje zahteva za registraciju
 
+    /**
+     * Metoda za obradjivanje zahteva za registraciju
+     *
+     * @param RegistracijaRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function registracijaPost(RegistracijaRequest $request){
         try{
             $name = $request->input('ime');
@@ -52,6 +66,8 @@ class KorisnikController extends Controller
 
     /**
      * Metoda za logovanje korisnika
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function loginKorisnik(){
         return view( 'korisnik.login');
@@ -79,7 +95,9 @@ class KorisnikController extends Controller
     }
 
     /**
-     * Brise sesije loggovanih korisnika
+     * Izloguje korisnika
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function logout()
     {

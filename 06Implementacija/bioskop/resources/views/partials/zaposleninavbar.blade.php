@@ -40,7 +40,6 @@
                     Otkucaj kartu
                 </a>
             </li>
-
             @endsluzbenik
 
         </ul>
