@@ -13,9 +13,11 @@
 // Home routes
 Route::get('/', 'HomeController@index') -> name('home');
 
+// Ruta ako je korisnik prekoracio dozvolu
+Route::get('/nema/dozvolu',    'HomeController@nemaDozvolu') -> name('dozvola');
+
 
 // Rute za korisnika
-
 Route::get('registracija', 'KorisnikController@registracija') ->name('registracija');
 Route::post('registracija', 'KorisnikController@registracijaPost')->name('registracija.post');
 Route::get('login',  'KorisnikController@loginKorisnik') -> name("korisnik.login");

@@ -13,8 +13,20 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 
+
+/**
+ * Realizuje sve operacije dovoljene moderatoru
+ *
+ * Class AdministratorController
+ * @package App\Http\Controllers
+ */
 class AdministratorController extends Controller
 {
+    public function __construct()
+    {
+        $this -> middleware('administrator');
+    }
+    
     /**
      * Prikazivanje formulara za dodavanje filma
      */

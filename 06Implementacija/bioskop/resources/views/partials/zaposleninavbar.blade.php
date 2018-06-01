@@ -8,6 +8,7 @@
         <ul class="navbar-nav mr-auto">
 
             {{-- Administratorski linkovi --}}
+            @administrator
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.film.dodavanje') !== false) active @endif">
                 <a class="nav-link " href="{{ route('administrator.film.dodavanje') }}">Dodaj film</a>
             </li>
@@ -20,17 +21,27 @@
             <li class="nav-item">
                 <a href="#" class="nav-link">Bioskopi</a>
             </li>
+            @endadministrator
 
             {{-- Menadzerski Linkovi --}}
+            @menadzer
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'menadzer.projekcija.dodavanje') !== false) active @endif">
                 <a class="nav-link" href="{{ route('menadzer.projekcija.dodavanje') }}">Dodaj projekciju</a>
             </li>
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'menadzer.projekcije') !== false) active @endif">
                 <a class="nav-link" href="{{ route('menadzer.projekcije') }}">Projekcije bioskopa</a>
             </li>
+            @endmenadzer
 
             {{-- Salterski Sluzbenik linkovi --}}
+            @sluzbenik
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    Otkucaj kartu
+                </a>
+            </li>
 
+            @endsluzbenik
 
         </ul>
 

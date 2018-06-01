@@ -18,5 +18,14 @@ class HomeController extends Controller
         	'bioskopi' => $bioskopi
         ]);
     }
-	
+
+    /**
+     * Vraca view koji obavestava korisnika da on nema dozvolu za pristup
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function nemaDozvolu()
+    {
+        return view('dozvola');
+    }
 }
