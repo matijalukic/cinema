@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Bioskop;
 use App\Film;
 use App\Http\Requests\Bioskopi\NoviBioskopRequest;
 use App\Http\Requests\Filmovi\IzmenaFilmaRequest;
@@ -143,7 +144,10 @@ class AdministratorController extends Controller
     }
     public function kreirajNalog()
     {
-        return view('zaposleni.kreiranjenaloga');
+        $bioskopi = Bioskop::all();
+        return view('zaposleni.kreiranjenaloga',[
+            'bioskopi'=>$bioskopi
+        ]);
     }
 
     public function kreirajNalogPost(KreirajNalogRequest $request)
