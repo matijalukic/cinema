@@ -59,6 +59,17 @@
             </div>
         </div>
         <div class="form-group row">
+            <label for="bioskop" class="col-sm-2 col-form-label">Bioskop</label>
+            <div class="col-sm-10">
+                <select id="inputState" name="bioskop" class="form-control">
+                    <option value="">---Bez bioskopa---</option>
+                    @foreach($bioskopi as $bioskop)
+                        <option value="{{$bioskop->id}}">{{$bioskop->id}}: {{$bioskop->naziv}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
             <div class="col-sm-10 text-center">
                 <button type="submit" class="btn btn-primary">Kreiraj nalog</button>
             </div>

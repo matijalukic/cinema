@@ -186,7 +186,10 @@ class AdministratorController extends Controller
 
     public function kreirajNalog()
     {
-        return view('zaposleni.kreiranjenaloga');
+        $bioskopi = Bioskop::all();
+        return view('zaposleni.kreiranjenaloga',[
+            'bioskopi'=>$bioskopi
+        ]);
     }
 
     public function kreirajNalogPost(KreirajNalogRequest $request)

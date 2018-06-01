@@ -47,6 +47,7 @@ class KreirajNalogRequest extends FormRequest
     $user->prezime=$this->prezime;
     $user->jmbg=$this->jmbg;
     $user->password=Hash::make($this ->password);
+    $user->bioskop_id=$this->bioskop;
 
     $user->save();
 
