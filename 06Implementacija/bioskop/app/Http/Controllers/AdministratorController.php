@@ -8,6 +8,7 @@ use App\Http\Requests\Filmovi\IzmenaFilmaRequest;
 use App\Http\Requests\Filmovi\NoviFilmRequest;
 use App\Http\Requests\zaposleni\BrisanjeNalogaRequest;
 use App\Http\Requests\Zaposleni\BrisanjeSvihNalogaRequest;
+use App\Http\Requests\Zaposleni\KreirajNalogRequest;
 use App\Korisnik;
 use App\Zaposleni;
 use Carbon\Carbon;
@@ -156,6 +157,7 @@ class AdministratorController extends Controller
         return redirect() -> back();
     }
 
+
     /**
      * Prosledjuje ka view listu svih bioskopa
      *
@@ -180,8 +182,24 @@ class AdministratorController extends Controller
     {
         $bioskop = Bioskop::findOrFail($id);
 
-        $bioskop -> delete();
-        session() -> flash('success', 'Bioskop je obrisan!');
+        $bioskop->delete();
+        session()->flash('success', 'Bioskop je obrisan!');
+    }
+
+    public function kreirajNalog()
+    {
+        return view('zaposleni.kreiranjenaloga');
+    }
+
+    public function kreirajNalogPost(KreirajNalogRequest $request)
+    {
+        try{
+            $request -> persist();
+            session() -> flash('success', "Uspešno ste kreirali nalog!");
+        }
+        catch(\Exception $e){
+            session() -> flash('error', $e -> getMessage());
+        }
 
         return redirect() -> back();
     }
