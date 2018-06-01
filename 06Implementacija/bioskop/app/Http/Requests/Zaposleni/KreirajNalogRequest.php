@@ -52,6 +52,8 @@ class KreirajNalogRequest extends FormRequest
     $user->save();
 
     if($this->tip == 'Sluzbenik'){
+        $user -> bioskop_id = null;
+        $user -> save();
         SalterskiSluzbenik::insert([
             'id' => $user->id,
             'created_at' => Carbon::now(),
