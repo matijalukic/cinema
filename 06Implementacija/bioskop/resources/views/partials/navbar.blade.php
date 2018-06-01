@@ -10,7 +10,7 @@
                 <a class="nav-link active" href="#">Lista bioskopa <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Lista_filmova.html">Lista filmova</a>
+                <a class="nav-link" href="svifilmovi.blade.php">Lista filmova</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Repertoar_bioskopa.html">Repertaor bioskopa</a>

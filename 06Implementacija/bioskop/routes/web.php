@@ -12,6 +12,7 @@
 */
 // Home routes
 Route::get('/', 'HomeController@index') -> name('home');
+Route::get('/svifilmovi', 'HomeController@svifilmovi') -> name('filmovi.svi');//imerute preko koje dohvatam rutu
 
 
 // Rute za korisnika
