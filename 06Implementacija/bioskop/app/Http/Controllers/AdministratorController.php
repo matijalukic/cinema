@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Bioskop;
 use App\Film;
 use App\Http\Requests\Bioskopi\NoviBioskopRequest;
 use App\Http\Requests\Filmovi\IzmenaFilmaRequest;
@@ -73,6 +74,8 @@ class AdministratorController extends Controller
         try{
             $request -> persist();
             session() -> flash('success', 'Uspešan unos bioskopa!');
+
+            return redirect() -> route('administrator.bioskopi');
         }
         catch(\Exception $e){
             session() -> flash('error', $e -> getMessage());
@@ -150,6 +153,36 @@ class AdministratorController extends Controller
         catch(\Exception $e){
             session() -> flash('error', $e -> getMessage());
         }
+        return redirect() -> back();
+    }
+
+    /**
+     * Prosledjuje ka view listu svih bioskopa
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function bioskopi()
+    {
+        $bioskopi  = Bioskop::orderByDesc('created_at') -> paginate(20);
+
+        return view('zaposleni.bioskopi',[
+            'bioskopi' => $bioskopi
+        ]);
+    }
+
+    /**
+     * Brise bioskop sa odredjenim $id-om
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function obrisiBioskop($id)
+    {
+        $bioskop = Bioskop::findOrFail($id);
+
+        $bioskop -> delete();
+        session() -> flash('success', 'Bioskop je obrisan!');
+
         return redirect() -> back();
     }
 }

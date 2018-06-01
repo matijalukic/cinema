@@ -27,6 +27,7 @@ Route::get('logout',  'KorisnikController@logout') -> name("korisnik.logout");
 /**
  * Rute zaposlenih
  */
+Route::get('zaposeln', 'ZaposleniController@index') -> name('zaposleni.index');
 Route::get('login/zaposleni',  'ZaposleniController@loginZaposleni') -> name("zaposleni.login");
 Route::post('login/zaposleni',  'ZaposleniController@zaposleniLogin') -> name("zaposleni.login.post");
 Route::get('logout/zaposleni',  'ZaposleniController@logout') -> name("zaposleni.logout");
@@ -37,11 +38,14 @@ Route::get('logout/zaposleni',  'ZaposleniController@logout') -> name("zaposleni
  */
 Route::get('film/dodaj', 'AdministratorController@dodavanjeFilma') -> name('administrator.film.dodavanje');
 Route::post('film/dodaj', 'AdministratorController@unosFilma') -> name('administrator.film.unos');
+
 Route::get('bioskop/dodaj', 'AdministratorController@dodavanjeBioskopa') -> name('administrator.bioskop.dodavanje');
 Route::post('bioskop/dodaj', 'AdministratorController@unosBioskopa') -> name('administrator.bioskop.unos');
 
-Route::get('film/izmeni/{id}', 'AdministratorController@izmenaFilma') -> name('administrator.film.izmena');
+Route::get('bioskopi',  'AdministratorController@bioskopi') -> name('administrator.bioskopi');
+Route::get('bioskop/obrisi/{id}',   'AdministratorController@obrisiBioskop') -> name('administrator.bioskop.obrisi');
 
+Route::get('film/izmeni/{id}', 'AdministratorController@izmenaFilma') -> name('administrator.film.izmena');
 Route::post('film/izmeni', 'AdministratorController@izmenaFilmaPost') -> name('administrator.film.izmena.post');
 
 Route::get('zaposleni/brisi', 'AdministratorController@brisiNalog') ->name('administrator.zaposleni.brisi');

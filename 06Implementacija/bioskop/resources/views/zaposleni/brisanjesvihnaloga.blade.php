@@ -10,10 +10,10 @@
 
     <form method="post" action="{{ route("administrator.zaposleni.brisisve.post") }}" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <div class="form-group row">
+        <div class="form-group row justify-content-center">
             <label for="dana" class="col-sm-4 col-form-label">Obrisi sve naloge ukoliko nisu bili aktivni:</label>
         </div>
-        <div class="form-group row">
+        <div class="form-group row justify-content-center">
             <div class="col-sm-10">
                 <div class="input-group mb-2">
 
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row justify-content-center">
             <div class="col-sm-10 text-center">
                 <button type="submit" class="btn btn-danger">Obrisi</button>
             </div>

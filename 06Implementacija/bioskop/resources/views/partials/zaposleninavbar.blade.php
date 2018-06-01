@@ -18,8 +18,14 @@
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.bioskop.dodavanje') !== false) active @endif">
                 <a href="{{ route('administrator.bioskop.dodavanje') }}" class="nav-link">Dodaj bioskop</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Bioskopi</a>
+            <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.bioskopi') !== false) active @endif">
+                <a href="{{ route("administrator.bioskopi") }}" class="nav-link">Bioskopi</a>
+            </li>
+            <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.zaposleni.brisisve') !== false) active @endif">
+                <a href="{{ route('administrator.zaposleni.brisisve') }}" class="nav-link">Obriši zastarele</a>
+            </li>
+            <li class="nav-item @if(Route::currentRouteName() == 'administrator.zaposleni.brisi') active @endif">
+                <a href="{{ route('administrator.zaposleni.brisi') }}" class="nav-link">Obriši naloge</a>
             </li>
             @endadministrator
 

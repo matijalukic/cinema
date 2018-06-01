@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Bioskopi;
 
 use App\Bioskop;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class NoviBioskopRequest extends FormRequest
@@ -33,9 +34,11 @@ class NoviBioskopRequest extends FormRequest
     public function persist()
     {
 
-        $nobiBioskop = Bioskop::insert([
+        $noviBioskop = Bioskop::insert([
             'naziv' => $this -> naziv,
             'adresa' => $this -> adresa,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
     }

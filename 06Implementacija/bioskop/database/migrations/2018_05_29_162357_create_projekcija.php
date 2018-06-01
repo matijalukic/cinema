@@ -27,7 +27,7 @@ class CreateProjekcija extends Migration
             // foreign keys
             $table->foreign('film_id')->references('id')->on('film')->onDelete('cascade');
             $table->foreign('zaposleni_id')->references('id')->on('zaposleni');
-            $table->foreign('bioskop_id')->references('id')->on('bioskop');
+            $table->foreign('bioskop_id')->references('id')->on('bioskop') -> onDelete('cascade');
         });
     }
 

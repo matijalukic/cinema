@@ -14,10 +14,9 @@ class KorisnikController extends Controller
 {
     public function __construct()
     {
-        // korisnik mora biti ulogovan da bi izvrsio operacije osim registracije
-        $this -> middleware('korisnik') ->except(['registracija', 'registracijaPost']);
-        // Korisnik ne sme biti ulogovan da bi se registrovao
-        $this -> middleware('gost') -> only(['registracija', 'registracijaPost']);
+        // Korisnik ne sme biti gost da bi se izlogovao
+        $this -> middleware('gost') -> except('logout');
+        $this -> middleware('korisnik') -> only('logout');
     }
 
     /**
