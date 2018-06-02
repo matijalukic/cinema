@@ -185,20 +185,47 @@ class AdministratorController extends Controller
 
         $bioskop->delete();
         session()->flash('success', 'Bioskop je obrisan!');
+        return redirect() -> back();
     }
 
     public function kreirajNalog()
     {
-        return view('zaposleni.kreiranjenaloga');
+        $bioskopi = Bioskop::all();
+        return view('zaposleni.kreiranjenaloga',[
+            'bioskopi'=>$bioskopi
+        ]);
     }
 
     public function kreirajNalogPost(KreirajNalogRequest $request)
     {
-        try {
-            $request->persist();
-            session()->flash('success', "Uspešno ste kreirali nalog!");
-        } catch (\Exception $e) {
-            session()->flash('error', $e->getMessage());
+        try{
+            $request -> persist();
+            session() -> flash('success', "Uspešno ste kreirali nalog!");
         }
+        catch(\Exception $e){
+            session() -> flash('error', $e -> getMessage());
+        }
+
+        return redirect() -> back();
+    }
+    public function filmovi()
+    {
+        $filmovi  = Film::orderByDesc('created_at') -> paginate(20);
+
+        return view('zaposleni.filmovi',[
+            'filmovi' => $filmovi
+        ]);
+
+    }
+
+
+    public function obrisiFilm($id)
+    {
+        $film =Film::findOrFail($id);
+
+
+        $film->delete();
+        session()->flash('success', 'Film je obrisan!');
+        return redirect() -> back();
     }
 }

@@ -12,8 +12,8 @@
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.film.dodavanje') !== false) active @endif">
                 <a class="nav-link " href="{{ route('administrator.film.dodavanje') }}">Dodaj film</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Filmovi</a>
+            <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.zaposleni.filmovi') !== false) active @endif" >
+                <a href="{{ route('administrator.zaposleni.filmovi') }}" class="nav-link">Filmovi</a>
             </li>
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.bioskop.dodavanje') !== false) active @endif">
                 <a href="{{ route('administrator.bioskop.dodavanje') }}" class="nav-link">Dodaj bioskop</a>

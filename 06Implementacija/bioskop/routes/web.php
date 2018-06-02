@@ -57,6 +57,8 @@ Route::post('zaposleni/brisisve', 'AdministratorController@brisiSvePost') ->name
 Route::get('kreirajnalog', 'AdministratorController@kreirajNalog') ->name('administrator.kreirajnalog');
 Route::post('kreirajnalog', 'AdministratorController@kreirajNalogPost') ->name('administrator.kreirajnalog.post');
 
+Route::get('zaposleni/filmovi', 'AdministratorController@filmovi') ->name('administrator.zaposleni.filmovi');
+Route::get('zaposleni/filmovi/obrisi/{id}', 'AdministratorController@obrisiFilm') ->name('administrator.zaposleni.filmovi.obrisi');
 
 /**
  * Menadzerske rute
