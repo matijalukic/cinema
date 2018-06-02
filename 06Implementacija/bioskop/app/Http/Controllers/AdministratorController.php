@@ -182,6 +182,7 @@ class AdministratorController extends Controller
     {
         $bioskop = Bioskop::findOrFail($id);
 
+
         $bioskop->delete();
         session()->flash('success', 'Bioskop je obrisan!');
     }
@@ -193,14 +194,11 @@ class AdministratorController extends Controller
 
     public function kreirajNalogPost(KreirajNalogRequest $request)
     {
-        try{
-            $request -> persist();
-            session() -> flash('success', "Uspešno ste kreirali nalog!");
+        try {
+            $request->persist();
+            session()->flash('success', "Uspešno ste kreirali nalog!");
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
         }
-        catch(\Exception $e){
-            session() -> flash('error', $e -> getMessage());
-        }
-
-        return redirect() -> back();
     }
 }

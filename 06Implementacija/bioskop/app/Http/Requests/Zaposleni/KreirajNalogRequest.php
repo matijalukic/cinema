@@ -47,10 +47,13 @@ class KreirajNalogRequest extends FormRequest
     $user->prezime=$this->prezime;
     $user->jmbg=$this->jmbg;
     $user->password=Hash::make($this ->password);
+    $user->bioskop_id=$this->bioskop;
 
     $user->save();
 
     if($this->tip == 'Sluzbenik'){
+        $user -> bioskop_id = null;
+        $user -> save();
         SalterskiSluzbenik::insert([
             'id' => $user->id,
             'created_at' => Carbon::now(),
