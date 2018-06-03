@@ -23,7 +23,7 @@ class Film extends Model
     }
 
     /**
-     * Iz kolekcije projekcija povezanih sa ovim filmom filtrira one koje nisu prosle
+     * Iz kolekcije projekcija povezanih sa ovim filmom filtrira one koje nisu prosle, prvih pet uzima
      *
      * @return collection \App\Projekcija
      */
@@ -31,6 +31,6 @@ class Film extends Model
     {
         return $this -> projekcije -> filter(function($projekcija, $index){
             return $projekcija -> vreme > Carbon::now();
-        }) -> all();
+        }) -> sortBy(function($projekcija){ return $projekcija -> vreme; }) -> take(5);
     }
 }
