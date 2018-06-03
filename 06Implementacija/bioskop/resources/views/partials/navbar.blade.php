@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Lista bioskopa <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Lista bioskopa <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Lista_filmova.html">Lista filmova</a>
+                <a class="nav-link @if(Route::currentRouteName()== 'filmovi') active @endif" href="{{ route("filmovi") }}">Filmovi</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Repertoar_bioskopa.html">Repertaor bioskopa</a>
@@ -39,7 +39,7 @@
 
                 @zaposleni
                     <li class="nav-item text-warning">
-                        <a class="nav-link disabled text-warning">Zdravo, {{ auth() -> user() -> username }}</a>
+                        <a href="{{ route('zaposleni.index') }}" class="nav-link disabled text-warning">Zdravo, {{ auth() -> user() -> username }}</a>
                     </li>
 
                     <li class="nav-item">

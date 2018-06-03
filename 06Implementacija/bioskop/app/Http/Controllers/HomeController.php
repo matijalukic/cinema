@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Bioskop;
+use App\Film;
+use App\Http\Requests\Filmovi\PretragaFilmovaRequest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,5 +29,15 @@ class HomeController extends Controller
     public function nemaDozvolu()
     {
         return view('dozvola');
+    }
+
+    public function filmovi(PretragaFilmovaRequest $request)
+    {
+        $filmovi  = $request -> filmovi();
+
+        return view('filmovi',
+            [
+               'filmovi' => $filmovi,
+            ]);
     }
 }

@@ -33,6 +33,7 @@ class ZaposleniSeeder extends Seeder
         // za svaki bioskop moramo imati menadzera i sluzbenika, ukupno osam zaposlenih
         foreach (\App\Bioskop::all() as $bioskop){
             $zaposleni = \App\Zaposleni::create([
+                'bioskop_id' => $bioskop -> id,
                 'username' => array_pop($usernames),
                 'password' => '$2y$10$aL1jS2WnQ7R/SsKSjoufHecJmG474616LR6mNkT0VOHkU7I4U7Mj6', // "sifra" - hashed
                 'ime' => $bioskop -> naziv,
@@ -50,6 +51,7 @@ class ZaposleniSeeder extends Seeder
 
             // napravi sluzbenika
             $zaposleni = \App\Zaposleni::create([
+                'bioskop_id' => $bioskop -> id,
                 'username' => array_pop($usernames),
                 'password' => '$2y$10$aL1jS2WnQ7R/SsKSjoufHecJmG474616LR6mNkT0VOHkU7I4U7Mj6', // "sifra" - hashed
                 'ime' => $bioskop -> naziv,

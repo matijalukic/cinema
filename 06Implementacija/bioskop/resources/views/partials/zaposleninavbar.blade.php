@@ -10,35 +10,35 @@
             {{-- Administratorski linkovi --}}
             @administrator
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.film.dodavanje') !== false) active @endif">
-                <a class="nav-link " href="{{ route('administrator.film.dodavanje') }}">Dodaj film</a>
+                <a class="nav-link text-warning" href="{{ route('administrator.film.dodavanje') }}">Dodaj film</a>
             </li>
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.zaposleni.filmovi') !== false) active @endif" >
-                <a href="{{ route('administrator.zaposleni.filmovi') }}" class="nav-link">Filmovi</a>
+                <a href="{{ route('administrator.zaposleni.filmovi') }}" class="nav-link text-warning">Filmovi</a>
             </li>
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.bioskop.dodavanje') !== false) active @endif">
-                <a href="{{ route('administrator.bioskop.dodavanje') }}" class="nav-link">Dodaj bioskop</a>
+                <a href="{{ route('administrator.bioskop.dodavanje') }}" class="nav-link text-warning">Dodaj bioskop</a>
             </li>
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.bioskopi') !== false) active @endif">
-                <a href="{{ route("administrator.bioskopi") }}" class="nav-link">Bioskopi</a>
+                <a href="{{ route("administrator.bioskopi") }}" class="nav-link text-warning">Bioskopi</a>
             </li>
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'administrator.zaposleni.brisisve') !== false) active @endif">
-                <a href="{{ route('administrator.zaposleni.brisisve') }}" class="nav-link">Obriši zastarele</a>
+                <a href="{{ route('administrator.zaposleni.brisisve') }}" class="nav-link text-warning">Obriši zastarele</a>
             </li>
             <li class="nav-item @if(Route::currentRouteName() == 'administrator.zaposleni.brisi') active @endif">
-                <a href="{{ route('administrator.zaposleni.brisi') }}" class="nav-link">Obriši naloge</a>
+                <a href="{{ route('administrator.zaposleni.brisi') }}" class="nav-link text-warning">Obriši naloge</a>
             </li>
             <li class="nav-item @if(Route::currentRouteName() == 'administrator.kreirajnalog') active @endif">
-                <a href="{{ route('administrator.kreirajnalog') }}" class="nav-link">Dodaj nalog</a>
+                <a href="{{ route('administrator.kreirajnalog') }}" class="nav-link text-warning">Dodaj nalog</a>
             </li>
             @endadministrator
 
             {{-- Menadzerski Linkovi --}}
             @menadzer
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'menadzer.projekcija.dodavanje') !== false) active @endif">
-                <a class="nav-link" href="{{ route('menadzer.projekcija.dodavanje') }}">Dodaj projekciju</a>
+                <a class="nav-link text-white" href="{{ route('menadzer.projekcija.dodavanje') }}">Dodaj projekciju</a>
             </li>
             <li class="nav-item @if(strpos(Route::currentRouteName(), 'menadzer.projekcije') !== false) active @endif">
-                <a class="nav-link" href="{{ route('menadzer.projekcije') }}">Projekcije bioskopa</a>
+                <a class="nav-link text-white" href="{{ route('menadzer.projekcije') }}">Projekcije bioskopa</a>
             </li>
             @endmenadzer
 

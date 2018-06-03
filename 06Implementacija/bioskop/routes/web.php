@@ -12,6 +12,7 @@
 */
 // Home routes
 Route::get('/', 'HomeController@index') -> name('home');
+Route::get('filmovi', 'HomeController@filmovi') -> name('filmovi'); // svi filmovi + pretraga
 
 // Ruta ako je korisnik prekoracio dozvolu
 Route::get('/nema/dozvolu',    'HomeController@nemaDozvolu') -> name('dozvola');
