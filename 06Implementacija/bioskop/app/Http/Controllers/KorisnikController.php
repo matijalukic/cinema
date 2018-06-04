@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use App\Exceptions\CustomException;
 use App\Http\Requests\Korisnik\LoginUserRequest;
 use App\Http\Requests\Korisnik\RegistracijaRequest;
+use App\Http\Requests\korisnik\RezervacijaRequest;
 use App\Korisnik;
+use App\Rezervacija;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Collection;
+use Illuminate\Database\MySqlConnection;
 
 class KorisnikController extends Controller
 {
@@ -17,6 +22,7 @@ class KorisnikController extends Controller
         // Korisnik ne sme biti gost da bi se izlogovao
         $this -> middleware('gost') -> except('logout');
         $this -> middleware('korisnik') -> only('logout');
+
     }
 
     /**
@@ -105,6 +111,41 @@ class KorisnikController extends Controller
         session() -> flash('success', 'Uspešna odjava!');
         return redirect() -> route('korisnik.login');
     }
+    public function rezervacija(){
+        return view('korisnik.rezervacija');
+    }
+    public function rezervacijaPost(RezervacijaRequest $request){
+        try{
+        $film = $request->input('film');
+        $broj = $request->input('brkar');
 
+        $rez = new Rezervacija;
+        $filmovi = DB::table('film')->get();
 
+        foreach ($filmovi as $film1){
+                If($film1->naziv == $film){
+                    $film2=$film1;
+                }
+            }
+            $projekcije = DB::table('projekcija')->get();
+        foreach ($projekcije as $projekcija){
+            if($projekcija->film_id == $film2->id){
+                $proj=$projekcija;
+            }
+        }
+        $rez->broj_karata = $broj;
+        $rez->projekcija_id = $proj->id;
+
+        //Ovde sam pokusao da promenim broj slodobnih mesta, ali negde gresim
+        //$broj1= $proj->broj_mesta - $broj;
+        //$projekcija2 = DB::update('update projekcija set broj_mesta = $broj1 where id =?', ['$proj->id']);
+        //$projekcija2->save();
+        $rez->save();
+
+        session()->flash('success', 'Uspesno ste rezervisali kartu!');
+    }catch(CustomException $e){
+        session() -> flash('error', $e -> getMessage());
+    }
+        return redirect() -> back();
+    }
 }

@@ -29,6 +29,9 @@
             @ulogovan
                 {{-- Ulogovan kao obican korisnik --}}
                 @korisnik
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('rezervacija') }}">Rezervacija</a>
+                    </li>
                     <li class="nav-item text-white">
                         <a class="nav-link disabled text-white">Zdravo, {{ auth('korisnici') -> user() -> username }}</a>
                     </li>

@@ -10,7 +10,7 @@ class Bioskop extends Model
 	protected $fillable = ['naziv' , 'adresa', 'created_at', 'updated_at'];
 
     /**
-     * Relacija 1 prema vise sa projekcijama, Bioskop ima vise projekcije
+     * Relacija 1 prema vise sa projekcijama, Bioskop ima vise projekcija
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
