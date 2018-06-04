@@ -37,4 +37,14 @@ class Projekcija extends Model
     {
         return $this -> hasOne(\App\Zaposleni::class, 'id', 'zaposleni_id');
     }
+    /**
+     * Vraca kolekciju rezervacija na koju se odnosi projekcija
+     *
+     * @return \App\Rezervacija
+     */
+    public function projekcija()
+    {
+        return $this -> hasMany(\App\Rezervacija::class, 'projekcija_id', 'id');
+    }
+
 }

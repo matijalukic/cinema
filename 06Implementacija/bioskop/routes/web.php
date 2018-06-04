@@ -24,9 +24,9 @@ Route::post('registracija', 'KorisnikController@registracijaPost')->name('regist
 Route::get('login',  'KorisnikController@loginKorisnik') -> name("korisnik.login");
 Route::post('login/korisnik',  'KorisnikController@korisnikLogin') -> name("korisnik.login.post");
 Route::get('logout',  'KorisnikController@logout') -> name("korisnik.logout");
-Route::get('rezervacija', 'KorisnikController@rezervacija')->name('rezervacija');
+Route::get('rezervacija/{projekcija?}', 'KorisnikController@rezervacija')->name('rezervacija');
 Route::post('rezervacija', 'KorisnikController@rezervacijaPost')->name('rezervacija.post');
-
+Route::get('rezervacija/obrisi/{rezervacija}', 'KorisnikController@obrisiRezervaciju')->name('rezervacija.brisi');
 /**
  * Rute zaposlenih
  */

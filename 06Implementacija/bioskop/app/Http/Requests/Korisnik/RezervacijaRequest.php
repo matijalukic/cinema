@@ -24,8 +24,8 @@ class RezervacijaRequest extends FormRequest
     public function rules()
     {
         return [
-            'film' => 'required|string',
-            'brkar' => 'required',
+            'projekcija_id' => 'required|exists:projekcija,id',
+            'brkar' => 'required|numeric',
         ];
     }
 }
