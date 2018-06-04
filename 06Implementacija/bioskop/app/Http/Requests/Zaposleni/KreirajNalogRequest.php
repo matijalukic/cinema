@@ -9,6 +9,7 @@ use App\Zaposleni;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class KreirajNalogRequest extends FormRequest
 {
@@ -35,7 +36,7 @@ class KreirajNalogRequest extends FormRequest
             'username' => 'required|string|unique:korisnik,username',
             'jmbg' => 'required|string',
             'password' => 'required|string|confirmed',
-            'tip' => 'required'
+            'tip' => ['required', Rule::in(['Sluzbenik', 'Menadzer', 'Administrator'])],
         ];
     }
 

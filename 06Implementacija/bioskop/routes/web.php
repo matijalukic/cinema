@@ -12,6 +12,7 @@
 */
 // Home routes
 Route::get('/', 'HomeController@index') -> name('home');
+Route::get('filmovi', 'HomeController@filmovi') -> name('filmovi'); // svi filmovi + pretraga
 
 // Ruta ako je korisnik prekoracio dozvolu
 Route::get('/nema/dozvolu',    'HomeController@nemaDozvolu') -> name('dozvola');
@@ -59,6 +60,8 @@ Route::post('zaposleni/brisisve', 'AdministratorController@brisiSvePost') ->name
 Route::get('kreirajnalog', 'AdministratorController@kreirajNalog') ->name('administrator.kreirajnalog');
 Route::post('kreirajnalog', 'AdministratorController@kreirajNalogPost') ->name('administrator.kreirajnalog.post');
 
+Route::get('zaposleni/filmovi', 'AdministratorController@filmovi') ->name('administrator.zaposleni.filmovi');
+Route::get('zaposleni/filmovi/obrisi/{id}', 'AdministratorController@obrisiFilm') ->name('administrator.zaposleni.filmovi.obrisi');
 
 /**
  * Menadzerske rute

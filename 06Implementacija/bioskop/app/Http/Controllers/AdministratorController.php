@@ -156,6 +156,8 @@ class AdministratorController extends Controller
         }
         return redirect() -> back();
     }
+
+
     /**
      * Prosledjuje ka view listu svih bioskopa
      *
@@ -180,8 +182,10 @@ class AdministratorController extends Controller
     {
         $bioskop = Bioskop::findOrFail($id);
 
-        $bioskop -> delete();
-        session() -> flash('success', 'Bioskop je obrisan!');
+
+        $bioskop->delete();
+        session()->flash('success', 'Bioskop je obrisan!');
+        return redirect() -> back();
     }
 
     public function kreirajNalog()
@@ -201,6 +205,27 @@ class AdministratorController extends Controller
         catch(\Exception $e){
             session() -> flash('error', $e -> getMessage());
         }
+
+        return redirect() -> back();
+    }
+    public function filmovi()
+    {
+        $filmovi  = Film::orderByDesc('created_at') -> paginate(20);
+
+        return view('zaposleni.filmovi',[
+            'filmovi' => $filmovi
+        ]);
+
+    }
+
+
+    public function obrisiFilm($id)
+    {
+        $film =Film::findOrFail($id);
+
+
+        $film->delete();
+        session()->flash('success', 'Film je obrisan!');
         return redirect() -> back();
     }
 }
