@@ -22,13 +22,17 @@ Route::get('projekcije', 'HomeController@projekcije') -> name('projekcije'); // 
 Route::get('/nema/dozvolu',    'HomeController@nemaDozvolu') -> name('dozvola');
 
 
-// Rute samo za gosta
+/**
+ * Rute samo za goste
+ */
 Route::get('registracija', 'GostController@registracija') ->name('registracija');
 Route::post('registracija', 'GostController@registracijaPost')->name('registracija.post');
 Route::get('login',  'GostController@loginKorisnik') -> name("korisnik.login");
 Route::post('login/korisnik',  'GostController@korisnikLogin') -> name("korisnik.login.post");
 
-// Rute samo za ulogovanog korisnika
+/**
+ * Rute ulogovanih korisnika
+ */
 Route::get('logout',  'KorisnikController@logout') -> name("korisnik.logout");
 Route::get('rezervacija/{projekcija?}', 'KorisnikController@rezervacija')->name('rezervacija');
 Route::post('rezervacija', 'KorisnikController@rezervacijaPost')->name('rezervacija.post');
@@ -83,3 +87,4 @@ Route::get('projekcija/obrisi/{id}' ,   'MenadzerController@obrisiProjekciju') -
  */
 Route::get('zaposleni/karta/prodaja', 'SluzbenikController@prodateKarte')->name('karte');
 Route::post('zaposleni/karta/prodaja', 'SluzbenikController@prodateKartePost')->name('karte.post');
+Route::get('rezervacija/karta/prodaja', 'SluzbenikController@rezervacijaKarte')->name('karte.rezervacija.post');

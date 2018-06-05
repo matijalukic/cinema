@@ -44,11 +44,9 @@
 
             {{-- Salterski Sluzbenik linkovi --}}
             @sluzbenik
-            <li class="nav-item" @if(strpos(Route::currentRouteName(), 'menadzer.projekcija.dodavanje') !== false) active @endif">
-                <a href="#" class="nav-link">
-                    Otkucaj kartu
-                </a>
-            </li>
+                <li class="nav-item @if(Route::currentRouteName()== 'karte') active @endif">
+                    <a class="nav-link text-warning" href="{{ route('karte') }}">Prodaja karata</a>
+                </li>
             @endsluzbenik
 
         </ul>

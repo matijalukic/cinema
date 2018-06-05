@@ -17,7 +17,6 @@ class CreateRezervacija extends Migration
             $table->increments('id');
             $table -> integer('broj_karata');
             $table -> unsignedInteger('projekcija_id');
-            $table -> unsignedInteger('karta_id') -> nullable();
             $table -> unsignedInteger('korisnik_id');
             $table->timestamps();
 

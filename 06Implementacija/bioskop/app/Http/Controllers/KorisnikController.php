@@ -49,7 +49,7 @@ class KorisnikController extends Controller
      * @param Projekcija|null $projekcija
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function rezervacija(Projekcija $projekcija=null){
+    public function rezervacija(Projekcija $projekcija = null){
         $aktivne_projekcije = Projekcija::where('vreme', '>', Carbon::now())->orderBy('vreme')->get();
         $sve_rezervacije =  Rezervacija::whereHas('projekcija', function($projekcija){$projekcija->where('vreme', '>', Carbon::now());})->orderByDesc('created_at')->get();
 
@@ -78,10 +78,8 @@ class KorisnikController extends Controller
         $rez->korisnik_id = auth("korisnici")->user()->id;
         $projekcija->broj_mesta-=$brkar;
 
-
         $projekcija->save();
         $rez->save();
-
 
         session()->flash('success', 'Uspesno ste rezervisali kartu!');
 
