@@ -27,7 +27,9 @@
 									<a href="{{ route('film', $projekcija -> film) }}"><h5 class="card-title">{{ $projekcija -> film -> naziv }}</h5></a>
 									<p class="card-text text-justify">{{ $projekcija -> film -> opis }}</p>
 									<p class="card-text"><small class="text-muted">{{ $projekcija -> film -> trajanje }} min {{ $projekcija -> broj_mesta }} mesta</small></p>
+									@korisnik
 									<a href="{{ route('rezervacija', $projekcija) }}" class="btn btn-primary">Rezerviši</a>
+									@endkorisnik
 								</div>
 							</div>
 							@endforeach

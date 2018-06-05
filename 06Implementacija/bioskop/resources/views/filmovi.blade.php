@@ -32,9 +32,11 @@
 
     @if($filmovi -> isNotEmpty())
         @foreach($filmovi as $film)
-        <div class="media my-3">
-            <img class="mr-3" src="{{ asset( "storage/" . $film->path) }}" alt="{{ $film -> naziv }}">
-            <div class="media-body">
+        <div class="row my-3 p-4 bg-white rounded">
+            <div class="col-md-3 justify-content-center d-flex">
+                <img class="rounded img-thumbnail img-fluid" src="{{ asset( "storage/" . $film->path) }}" alt="{{ $film -> naziv }}">
+            </div>
+            <div class="col-md-9">
                 <a href="{{ route('film', $film) }}"><h3 class="mt-0">{{ $film -> naziv }}</h3></a>
                 <p>{{ $film -> opis }}</p>
                 <p class="text-muted">{{ $film -> trajanje }} min - <strong>{{ $film -> godina }}</strong> - Režiser: {{ $film -> reziser }} - Glavne uloge: {{ $film -> glavna_uloga }} - Žanrovi: {{ $film -> zanr }}</p>

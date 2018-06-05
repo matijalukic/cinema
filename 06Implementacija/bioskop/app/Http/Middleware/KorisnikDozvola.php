@@ -21,7 +21,7 @@ class KorisnikDozvola
      */
     public function handle($request, Closure $next)
     {
-        if(auth() -> check('korisnici'))
+        if(! auth('korisnici') -> check())
             return redirect() -> route('dozvola');
         return $next($request);
     }

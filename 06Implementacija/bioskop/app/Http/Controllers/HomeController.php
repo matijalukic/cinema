@@ -84,7 +84,7 @@ class HomeController extends Controller
             $projekcije = $projekcije -> where('vreme', '<', $krajDana) -> where('vreme', '>', $pocetakDana);
         }
 
-        $projekcije = $projekcije -> get();
+        $projekcije = $projekcije -> paginate(20);
 
         return view('projekcije',
             [
@@ -115,7 +115,7 @@ class HomeController extends Controller
             $projekcije = $projekcije -> where('vreme', '<', $krajDana) -> where('vreme', '>', $pocetakDana);
         }
 
-        $projekcije = $projekcije -> get();
+        $projekcije = $projekcije -> paginate(20);
 
         return view('projekcije',
             [
@@ -153,7 +153,7 @@ class HomeController extends Controller
             $projekcije = $projekcije -> where('vreme', '<', $krajDana) -> where('vreme', '>', $pocetakDana);
         }
 
-        $projekcije = $projekcije -> get();
+        $projekcije = $projekcije -> paginate(20);
 
         return view('projekcije',
             [

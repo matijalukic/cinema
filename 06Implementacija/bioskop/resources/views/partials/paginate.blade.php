@@ -2,7 +2,7 @@
     <nav>
         <ul class="pagination justify-content-center">
             <li class="page-item @if($paginator->onFirstPage()) disabled @endif">
-                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" @if($paginator->onFirstPage()) tabindex="-1" @endif><i class="fa fa-angle-left"></i> Previous</a>
+                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" @if($paginator->onFirstPage()) tabindex="-1" @endif><i class="fa fa-angle-left"></i> Prethodni</a>
             </li>
 
             @foreach ($elements as $element)
@@ -24,7 +24,7 @@
             @endforeach
 
             <li class="page-item @if(!$paginator->hasMorePages()) disabled @endif">
-                <a class="page-link" rel="next" href="{{ $paginator->nextPageUrl() }}">Next <i class="fa fa-angle-right"></i></a>
+                <a class="page-link" rel="next" href="{{ $paginator->nextPageUrl() }}">Sledeći <i class="fa fa-angle-right"></i></a>
             </li>
         </ul>
     </nav>
