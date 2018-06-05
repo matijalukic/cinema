@@ -118,6 +118,11 @@ class AdministratorController extends Controller
         return redirect() -> back();
     }
 
+    /**
+     * Prikazuje sve zaposlene i korisnike u list za brisanje naloga
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function brisiNalog()
     {
         $zaposleni = Zaposleni::all();
@@ -128,6 +133,14 @@ class AdministratorController extends Controller
             'korisnici' => $korisnici
         ]);
     }
+
+    /**
+     * Obradjuje zahtev za brisanje naloga
+     *
+     * @param BrisanjeNalogaRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function brisiNalogPost(BrisanjeNalogaRequest $request)
     {
         try{
@@ -140,11 +153,22 @@ class AdministratorController extends Controller
         return redirect() -> back();
     }
 
+    /**
+     * Automatsko brisanje zastarelih naloga
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function brisiSve()
     {
         return view('zaposleni.brisanjesvihnaloga');
     }
 
+    /**
+     * Obrada zahteva za autoatsko brisanje zastarelih naloga
+     *
+     * @param BrisanjeSvihNalogaRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function brisiSvePost(BrisanjeSvihNalogaRequest $request)
     {
         try{
@@ -188,6 +212,11 @@ class AdministratorController extends Controller
         return redirect() -> back();
     }
 
+    /**
+     * Prikazuje formular za registrovanje novog zaposlenog
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function kreirajNalog()
     {
         $bioskopi = Bioskop::all();
@@ -196,6 +225,13 @@ class AdministratorController extends Controller
         ]);
     }
 
+    /**
+     * Perzistira zahtev administratora za kreiranje naloga zaposlenog
+     *
+     * @param KreirajNalogRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     */
     public function kreirajNalogPost(KreirajNalogRequest $request)
     {
         try{
@@ -208,6 +244,12 @@ class AdministratorController extends Controller
 
         return redirect() -> back();
     }
+
+    /**
+     * Prikaz svih filmova u tabeli sa paginacijom
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function filmovi()
     {
         $filmovi  = Film::orderByDesc('created_at') -> paginate(20);
@@ -218,11 +260,15 @@ class AdministratorController extends Controller
 
     }
 
-
+    /**
+     * Brisanje filma sa odredjenim idom
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function obrisiFilm($id)
     {
         $film =Film::findOrFail($id);
-
 
         $film->delete();
         session()->flash('success', 'Film je obrisan!');
