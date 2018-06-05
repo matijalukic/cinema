@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Administrator;
+use App\Menadzer;
+use App\SalterskiSluzbenik;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
@@ -29,6 +32,25 @@ class AppServiceProvider extends ServiceProvider
          */
         Blade::if('zaposleni', function(){
             return auth() -> check();
+        });
+
+        /**
+         * Blade direktiva proverava da li je zaposleni ulogovan i da li je administrator
+         */
+        Blade::if('administrator', function(){
+            return auth() -> check() && Administrator::find(auth() -> user() -> id);
+        });
+        /**
+         * Blade direktiva proverava da li je zaposleni ulogovan i da li je menadzer
+         */
+        Blade::if('menadzer', function(){
+            return auth() -> check() && Menadzer::find(auth() -> user() -> id);
+        });
+        /**
+         * Blade direktiva proverava da li je zaposleni ulogovan i da li je sluzbenik
+         */
+        Blade::if('sluzbenik', function(){
+            return auth() -> check() && SalterskiSluzbenik::find(auth() -> user() -> id);
         });
         /**
          * Blade direktiva proverava da li je korisnicik ili zaposelni

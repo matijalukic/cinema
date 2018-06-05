@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Projekcija extends Model
@@ -37,4 +38,24 @@ class Projekcija extends Model
     {
         return $this -> hasOne(\App\Zaposleni::class, 'id', 'zaposleni_id');
     }
+    /**
+     * Vraca kolekciju rezervacija na koju se odnosi projekcija
+     *
+     * @return \App\Rezervacija
+     */
+    public function projekcija()
+    {
+        return $this -> hasMany(\App\Rezervacija::class, 'projekcija_id', 'id');
+    }
+
+    /**
+     * Pretvara vreme projekcije u formatiran string
+     *
+     * @return string
+     */
+    public function getFormatVremeAttribute()
+    {
+        return Carbon::parse($this -> vreme) -> format("H:i d.m.Y");
+    }
+
 }

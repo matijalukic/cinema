@@ -10,7 +10,7 @@
 
     <form method="post" action="{{ route("administrator.zaposleni.brisi.post") }}" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <div class="form-group row">
+        <div class="form-group row justify-content-center">
             <label for="zaposleni" class="col-sm-2 col-form-label">Username zaposlenog</label>
             <div class="col-sm-10">
                 <select multiple class="form-control" name="zaposlen[]" id="exampleFormControlSelect2" size="5">
@@ -21,7 +21,7 @@
                 </select>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row" justify-content-center>
             <label for="korisnici" class="col-sm-2 col-form-label">Username korisnika</label>
             <div class="col-sm-10">
                 <select multiple class="form-control" name="korisnik[]" id="exampleFormControlSelect2" size="7">
@@ -32,7 +32,7 @@
                 </select>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row justify-content-center">
             <div class="col-sm-10 text-center">
                 <button type="submit" class="btn btn-danger">Obrisi</button>
             </div>

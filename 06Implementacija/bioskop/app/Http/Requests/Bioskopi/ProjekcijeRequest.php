@@ -2,11 +2,11 @@
 
 namespace App\Http\Requests\Bioskopi;
 
-use App\Bioskop;
+use App\Projekcija;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class NoviBioskopRequest extends FormRequest
+class ProjekcijeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,20 +26,10 @@ class NoviBioskopRequest extends FormRequest
     public function rules()
     {
         return [
-            'naziv' => 'required|string|max:20',
-			'adresa' => 'required|string|max:30',
+            'film_id' => 'nullable|exists:film,id',
+            'bioskop_id' => 'nullable|exists:bioskop,id',
+            'datum' => 'date|nullable',
         ];
     }
 
-    public function persist()
-    {
-
-        $noviBioskop = Bioskop::insert([
-            'naziv' => $this -> naziv,
-            'adresa' => $this -> adresa,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
-    }
 }

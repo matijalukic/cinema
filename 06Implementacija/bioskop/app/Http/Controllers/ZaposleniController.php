@@ -7,6 +7,24 @@ use Illuminate\Http\Request;
 
 class ZaposleniController extends Controller
 {
+    public function __construct()
+    {
+        // korisnik mora biti gost da bi video login
+        $this -> middleware('gost') -> only(['loginZaposleni', 'zaposleniLogin']);
+        // Korisnik mora biti ulogovan kao zaposleni da bi izvrsio operacije, osim logina
+        $this -> middleware('zaposleni') -> except(['loginZaposleni', 'zaposleniLogin']);
+    }
+    
+    /**
+     * Pocetna stranica za sve zaposlene
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
+        return view('zaposleni.index');
+    }
+
     /**
      * Formular za login zaposlenih
      *
@@ -25,8 +43,9 @@ class ZaposleniController extends Controller
         try{
             $request -> persist();
             session() -> flash('success', 'Uspešna prijava!');
-            // Uspesno logovanje
-            return redirect() -> route('administrator.film.dodavanje');
+
+            // uspesna prijava registruj se
+            return redirect() -> route('zaposleni.index');
         }
         catch(\Exception $e){
             session() -> flash('error', $e -> getMessage());

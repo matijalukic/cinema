@@ -5,6 +5,8 @@
 
 @section('content')
 
+    <h1 class="text-center my-3">Izmena filma</h1>
+
     @include('partials.success')
     @include('partials.errors')
 

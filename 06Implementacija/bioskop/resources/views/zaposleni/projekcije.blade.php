@@ -26,7 +26,7 @@
             </thead>
             <tbody>
                 @foreach($projekcije as $projekcija)
-                <tr>
+                <tr class="@if($projekcija -> vreme < \Carbon\Carbon::now()) bg-dark text-white @endif">
                     <th>{{ \Carbon\Carbon::parse($projekcija -> vreme) -> format("H:i d.m.Y") }}</th>
                     <td>{{ $projekcija -> film -> naziv }} ({{ $projekcija -> film -> godina }})</td>
                     <td>{{ $projekcija -> film -> trajanje }} min</td>
