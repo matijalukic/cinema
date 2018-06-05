@@ -45,6 +45,7 @@
                 </div>
                 <div class="col-md-9">
                     <h3 class="mt-0">{{ $film -> naziv }} - {{ $projekcija -> format_vreme }}</h3>
+                    <h4>{{ $projekcija -> bioskop -> naziv }} - {{ $projekcija -> bioskop -> adresa }}</h4>
                     <p>{{ $film -> opis }}</p>
                     <p class="text-muted">{{ $film -> trajanje }} min - <strong>{{ $film -> godina }}</strong> - Režiser: {{ $film -> reziser }} - Glavne uloge: {{ $film -> glavna_uloga }} - Žanrovi: {{ $film -> zanr }}</p>
                     <p class="text-muted">
