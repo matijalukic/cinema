@@ -78,3 +78,8 @@ Route::get('projekcija/dodaj',  'MenadzerController@dodajProjekciju') -> name('m
 Route::post('projekcija/dodaj',  'MenadzerController@dodajProjekcijuPost') -> name('menadzer.projekcija.dodavanje.post');
 Route::get('projekcije/menadzer' ,   'MenadzerController@projekcije') -> name('menadzer.projekcije');
 Route::get('projekcija/obrisi/{id}' ,   'MenadzerController@obrisiProjekciju') -> name('menadzer.projekcija.obrisi');
+/**
+ * Rute salterskog sluzbenika
+ */
+Route::get('zaposleni/karta/prodaja', 'SluzbenikController@prodateKarte')->name('karte');
+Route::post('zaposleni/karta/prodaja', 'SluzbenikController@prodateKartePost')->name('karte.post');

@@ -44,7 +44,7 @@
 
             {{-- Salterski Sluzbenik linkovi --}}
             @sluzbenik
-            <li class="nav-item">
+            <li class="nav-item" @if(strpos(Route::currentRouteName(), 'menadzer.projekcija.dodavanje') !== false) active @endif">
                 <a href="#" class="nav-link">
                     Otkucaj kartu
                 </a>
