@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Exceptions\CustomException;
 use App\Http\Requests\Korisnik\LoginUserRequest;
 use App\Http\Requests\Korisnik\RegistracijaRequest;
+
 use App\Korisnik;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 

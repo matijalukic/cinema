@@ -41,11 +41,19 @@
                 <p>{{ $film -> opis }}</p>
                 <p class="text-muted">{{ $film -> trajanje }} min - <strong>{{ $film -> godina }}</strong> - Režiser: {{ $film -> reziser }} - Glavne uloge: {{ $film -> glavna_uloga }} - Žanrovi: {{ $film -> zanr }}</p>
                 <p class="text-muted">{{ count($film -> aktivne_projekcije) }} projekcija</p>
-                <div class="btn-group" role="group" aria-label="Projekcije">
-                    @foreach($film -> aktivne_projekcije as $projekcija)
-                    <a href="{{ route('rezervacija', $projekcija) }}" class="btn btn-outline-primary">{{ \Carbon\Carbon::parse($projekcija -> vreme) -> format('H:i d.m.') }}</a>
-                    @endforeach
-                </div>
+                @korisnik
+                    <div class="btn-group" role="group" aria-label="Projekcije">
+                        @foreach($film -> aktivne_projekcije as $projekcija)
+                        <a href="{{ route('rezervacija', $projekcija) }}" class="btn btn-outline-primary">{{ \Carbon\Carbon::parse($projekcija -> vreme) -> format('H:i d.m.') }}</a>
+                        @endforeach
+                    </div>
+                @else
+                    <div class="btn-group" role="group" aria-label="Projekcije">
+                        @foreach($film -> aktivne_projekcije as $projekcija)
+                            <span class="btn btn-outline-primary">{{ \Carbon\Carbon::parse($projekcija -> vreme) -> format('H:i d.m.') }}</span>
+                        @endforeach
+                    </div>
+                @endkorisnik
             </div>
         </div>
         @endforeach
