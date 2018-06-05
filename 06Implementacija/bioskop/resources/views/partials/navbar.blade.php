@@ -35,6 +35,10 @@
                 @endkorisnik
 
                 @zaposleni
+
+                    <li class="nav-item @if(Route::currentRouteName()== 'karte') active @endif">
+                        <a class="nav-link text-warning" href="{{ route('karte') }}">Prodaja karata</a>
+                    </li>
                     <li class="nav-item text-warning">
                         <a href="{{ route('zaposleni.index') }}" class="nav-link disabled text-warning">Zdravo, {{ auth() -> user() -> username }}</a>
                     </li>
