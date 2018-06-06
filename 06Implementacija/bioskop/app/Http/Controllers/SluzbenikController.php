@@ -59,7 +59,7 @@ class SluzbenikController extends Controller
         }) -> orderBy('created_at') -> get();
 //        dd($rezervacije -> toSql());
         // sve projekcije
-        $sve_projekcije = Projekcija::where('vreme', '>', Carbon::now())->orderBy('vreme')->get();
+        $sve_projekcije = Projekcija::where('vreme', '>', Carbon::now(2))->orderBy('vreme')->get();
         $svi_korisnici = Korisnik::orderBy('ime')->get();
         $sve_karte = Karta::orderBy('created_at')->paginate(50);
 

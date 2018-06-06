@@ -9,7 +9,7 @@
     @include('partials.errors')
 
 
-    <form action="{{ route("filmovi") }}" class="form-inline bg-dark text-light p-2 justify-content-between rounded">
+    <form action="{{ route("filmovi") }}" class="form-inline bg-dark row text-light p-2 justify-content-between rounded">
         {{ csrf_field() }}
         <label for="datum">Datum prikazivanja</label>
         <input type="date" class="form-control mx-2" id="datum" name="datum_prikazivanja" placeholder="Datum prikazivanja" value="{{ request('datum_prikazivanja') }}">

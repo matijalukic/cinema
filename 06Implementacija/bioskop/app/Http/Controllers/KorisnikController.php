@@ -50,8 +50,8 @@ class KorisnikController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function rezervacija(Projekcija $projekcija = null){
-        $aktivne_projekcije = Projekcija::where('vreme', '>', Carbon::now())->orderBy('vreme')->get();
-        $sve_rezervacije =  Rezervacija::whereHas('projekcija', function($projekcija){$projekcija->where('vreme', '>', Carbon::now());})->orderByDesc('created_at')->get();
+        $aktivne_projekcije = Projekcija::where('vreme', '>', Carbon::now(2) -> addMinutes(15))->orderBy('vreme')->get();
+        $sve_rezervacije =  Rezervacija::whereHas('projekcija', function($projekcija){$projekcija->where('vreme', '>', Carbon::now(2));})->orderByDesc('created_at')->get();
 
         return view('korisnik.rezervacija', [
             'projekcija' => $projekcija,

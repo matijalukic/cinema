@@ -10,8 +10,35 @@
     @include('partials.success')
     @include('partials.errors')
 
+    <form action="{{ route('menadzer.projekcije') }}" class="form-inline bg-dark text-light p-2 justify-content-between rounded">
+
+        <label for="datum">Datum prikazivanja</label>
+        <input type="date" class="form-control" id="datum" name="datum" value="{{ request('datum') }}">
+        
+        <label for="film_id">Film:</label>
+        <select name="film_id" class="form-control" id="film_id">
+            <option value="">Odaberite film</option>
+            @foreach($filmovi as $fil)
+                <option {{ $fil-> id == request('film_id') ? 'selected' :  '' }} value="{{ $fil -> id }}">{{ $fil -> naziv }}</option>
+            @endforeach
+        </select>
+
+        <label for="sala">Sala:</label>
+        <select name="sala" class="form-control" id="sala">
+            <option value="">Odaberite salu</option>
+            @foreach($sale as $sala)
+                <option {{ $sala == request('sala') ? 'selected' :  '' }} value="{{ $sala }}">{{ $sala }}</option>
+            @endforeach
+        </select>
+
+
+        <button type="submit" class="btn btn-primary">Prikaži</button>
+
+    </form>
+
+
     @if($projekcije -> isNotEmpty())
-        <table class="table table-hover">
+        <table class="table table-hover table-striped mt-5">
             <thead>
             <tr>
                 <th scope="col">Termin</th>

@@ -9,7 +9,7 @@
     @include('partials.errors')
     @include('partials.success')
 
-    <form action="{{ route('projekcije') }}" class="form-inline bg-dark text-light p-2 justify-content-between rounded">
+    <form action="{{ route('projekcije') }}" class="form-inline row bg-dark text-light p-2 justify-content-between rounded">
 
             <label for="bioskop_id">Bioskop:</label>
                 <select name="bioskop_id" class="form-control" id="bioskop_id">
