@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bioskop;
+use App\Exceptions\CustomException;
 use App\Film;
 use App\Http\Requests\Bioskopi\NovaProjekcijaRequest;
 use App\Http\Requests\Zaposleni\ProjekcijeRequest;
@@ -50,7 +51,7 @@ class MenadzerController extends Controller
             $request -> persist();
             session() -> flash('success', 'Uspešan unos projekcije!');
         }
-        catch(Exception $e){
+        catch(CustomException $e){
             session() -> flash('error', $e -> getMessage());
         }
         return redirect() -> back();
@@ -65,8 +66,8 @@ class MenadzerController extends Controller
         $projekcijeBioskopa = Projekcija::where('bioskop_id', auth() -> user() -> bioskop -> id);
 
         // filtriraj po broju sale
-        if(!empty($request -> broj_sale))
-            $projekcijeBioskopa = $projekcijeBioskopa -> where('broj_sale', $request -> broj_sale);
+        if(!empty($request -> sala))
+            $projekcijeBioskopa = $projekcijeBioskopa -> where('broj_sale', '=',  $request -> sala);
 
         // filtriraj po datumu
         if(!empty($request -> datum)){

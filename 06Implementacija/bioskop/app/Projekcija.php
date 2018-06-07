@@ -58,4 +58,18 @@ class Projekcija extends Model
         return Carbon::parse($this -> vreme) -> format("H:i d.m.Y");
     }
 
+    /**
+     * Proverava da li je zadati termin u okviru intervala filma
+     *
+     * @param Carbon $termin
+     * @return bool
+     */
+    public function uTerminuFilma(Carbon $termin)
+    {
+        $terminProjekcije = Carbon::parse($this -> vreme);
+        $krajProjekcije = Carbon::parse($this -> vreme) -> addMinutes($this -> film -> trajanje + 15); // dodaj trajanje filma plus 15 minuta za izlazak iz sale
+
+        return $termin >= $terminProjekcije && $termin <= $krajProjekcije;
+    }
+
 }
