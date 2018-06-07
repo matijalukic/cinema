@@ -29,9 +29,18 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|string',
+            'username' => 'required|string|exists:zaposleni,username',
             'password' => 'required|string'
         ];
+    }
+
+    public function messages(){
+        return[
+            'username.required' => 'Korisničko ime je obavezno',
+            'username.exists' => 'Korisničko nije pronađeno u bazi',
+            'password.required' => 'Šifra je obavezna'
+        ];
+
     }
 
     public function persist()

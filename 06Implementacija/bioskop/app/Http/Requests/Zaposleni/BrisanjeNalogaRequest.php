@@ -26,10 +26,12 @@ class BrisanjeNalogaRequest extends FormRequest
     public function rules()
     {
         return [
-            'zaposlen' => 'min:1',
-            'korisnik' => 'min:1',
+            'zaposlen' => 'array|nullable',
+            'korisnik' => 'array|nullable'
         ];
     }
+
+
     public function persist()
     {
         if($this->zaposlen)

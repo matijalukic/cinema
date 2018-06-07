@@ -34,4 +34,21 @@ class RegistracijaRequest extends FormRequest
             'password' => 'required|string|confirmed',
         ];
     }
+    public function messages(){
+        return[
+            'ime.required' => 'Ime je obavezno',
+            'prezime.required' => 'Prezime j eobavezno',
+            'brtel.required' => 'Broj telefona je obavezan',
+            'adresa.required' => 'Adresa je obavezna',
+            'email.required' => 'Email je obavezan',
+            'email.email' => 'Email nije ispravno unet',
+            'username.required' => 'Korisničko ime je obavezno',
+            'username.unique' => 'Korisničko ime je već iskorišćeno, izaberite neko drugo',
+            'jmbg.required' => 'Matični broj je obavezan',
+            'password.required' => 'Šifra je obavezna',
+            'password.confirmed' => 'Šifre se ne podudaraju',
+
+        ];
+
+    }
 }

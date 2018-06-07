@@ -29,4 +29,13 @@ class ProjekcijeRequest extends FormRequest
             'sala' => 'nullable|exists:projekcija,broj_sale',
         ];
     }
+
+    public function messages(){
+        return[
+            'datum.date' => 'Izabrani je prošao',
+            'film_id.exists' => 'Izabrana projekcija ne postoji',
+            'sala.exists' => 'Izabrana sala ne postoji',
+        ];
+
+    }
 }

@@ -27,4 +27,11 @@ class KarteRezervacijeRequest extends FormRequest
             'rezervacija_id' => 'exists:rezervacija,id'
         ];
     }
+
+    public function messages(){
+        return[
+            'rezervacija_id.exists' => 'Rezervacija ne postoji',
+        ];
+
+    }
 }

@@ -28,4 +28,11 @@ class NovaKartaRequest extends FormRequest
             'korisnik_id' => 'required|exists:korisnik,id'
         ];
     }
+    public function messages(){
+        return[
+            'rezervacija_id.exists' => 'Rezervacija ne postoji',
+            'korisnik_id.exists' => 'Izabrani korisnik ne postoji ne postoji',
+        ];
+
+    }
 }

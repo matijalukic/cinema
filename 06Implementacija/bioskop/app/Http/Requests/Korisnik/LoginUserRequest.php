@@ -32,6 +32,15 @@ class LoginUserRequest extends FormRequest
             'password' => 'required|string'
         ];
     }
+    public function messages(){
+    return[
+      'username.required' => 'Korisničko ime je obavezno',
+        'username.exists' => 'Korisničko nije pronađeno u bazi',
+        'password.required' => 'Šifra je obavezna'
+        ];
+
+}
+
     public function persist()
     {
 

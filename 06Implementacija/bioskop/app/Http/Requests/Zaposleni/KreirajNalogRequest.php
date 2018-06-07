@@ -40,6 +40,22 @@ class KreirajNalogRequest extends FormRequest
         ];
     }
 
+    public function messages(){
+        return[
+            'ime.required' => 'Ime je obavezno',
+            'prezime.required' => 'Prezime je obavezno',
+            'username.required' => 'Korisničko ime je obavezno',
+            'username.unique' => 'Korisničko ime je već iskorišćeno, izaberite neko drugo',
+            'jmbg.required' => 'Matični broj je obavezan',
+            'password.required' => 'Širfa je obavezna',
+            'password.confirmed' => 'Šifre se ne podudaraju',
+            'tip.required' => 'Tip je obavezan',
+            'tip.in' => 'Tip ne postoji'
+        ];
+
+    }
+
+
     public function persist()
 {
     $user = new Zaposleni;

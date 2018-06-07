@@ -28,4 +28,15 @@ class RezervacijaRequest extends FormRequest
             'brkar' => 'required|numeric',
         ];
     }
+
+    public function messages(){
+        return[
+            'projekcija_id.required' => 'Izaberite projekciju',
+            'projekcija_id.exists' => 'Izabrana projekcija ne postoji',
+            'brkar.required' => 'Izaberite koliko karata želite',
+            'brkar.numeric' => 'Uneta vrednost nije broj',
+
+        ];
+
+    }
 }

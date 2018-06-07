@@ -23,7 +23,6 @@ class CreateRezervacija extends Migration
             // foreign keys
             $table->foreign('projekcija_id')->references('id')->on('projekcija')->onDelete('cascade');
             $table->foreign('korisnik_id')->references('id')->on('korisnik')->onDelete('cascade');
-            $table -> foreign('karta_id') -> references('id') -> on('karta');
         });
     }
 

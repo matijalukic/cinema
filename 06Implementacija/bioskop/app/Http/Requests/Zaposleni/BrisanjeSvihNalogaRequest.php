@@ -26,9 +26,17 @@ class BrisanjeSvihNalogaRequest extends FormRequest
     public function rules()
     {
         return [
-            'dana'=> 'required|digits_between:1,10|'
+            'dana'=> 'required|digits_between:1,10'
         ];
     }
+
+    public function messages(){
+        return[
+            'dana.required' => 'Broj dana je obavezan',
+        ];
+
+    }
+
     public function persist()
     {
         $korisniciZaBrisanje = Korisnik::where('updated_at', '<', Carbon::now() -> subDays($this->dana)) -> get();
