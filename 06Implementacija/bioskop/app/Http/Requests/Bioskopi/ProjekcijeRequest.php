@@ -32,4 +32,13 @@ class ProjekcijeRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'film_id.exists' => 'Odabrani film ne postoji',
+            'bioskop_id.exists' => 'Odabrani bioskop ne postoji',
+            'datum.date' => 'Odabrani datum nije validnog formata',
+        ];
+    }
+
 }

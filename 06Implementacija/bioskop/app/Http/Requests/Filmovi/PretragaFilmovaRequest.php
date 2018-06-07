@@ -33,6 +33,17 @@ class PretragaFilmovaRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'datum_prikazivanja.date' => 'Datum je pogrešnog formata',
+            'naziv.string' => 'Naziv mora biti niska',
+            'zanr.string' => 'Žanr mora biti niska',
+            'zanr.in' => 'Žanr mora biti među ponuđenim',
+            ];
+    }
+
+
     /**
      * Dohvata sve filmove na osnovu parametara requesta
      *

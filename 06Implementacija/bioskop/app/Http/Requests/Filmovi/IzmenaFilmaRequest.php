@@ -38,6 +38,27 @@ class IzmenaFilmaRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'naziv.required' => 'Naziv je obavezan',
+            'naziv.max' => 'Naziv sadrži najviše 20 znakova',
+            'opis.required' => 'Opis je obavezan',
+            'zanr.required' => 'Žanr je obavezan',
+            'zanr.min' => 'Morate izabrati barem jedan žanr',
+            'path.image' => 'Morate uploadovati sliku',
+            'path.mimes' => 'Slika filma nije ispravnog formata',
+            'reditelj.required' => 'Režiser je obavezan',
+            'glavna_uloga.required' => 'Glumci su obavezno polje',
+            'godina.required' => 'Godina je obavezno polje',
+            'godina.digits' => 'Godina mora imati 4 cifre',
+            'trajanje.required' => 'Trajanje je obavezno polje',
+            'trajanje.min' => 'Trajanje mora biti minimalno jedan minut',
+            'id.required' => 'Film za izmenu je obavezan',
+            'id.exists' => 'Nije pronadjen film koji se izmenjuje',
+        ];
+    }
+
     public function persist()
     {
         // upload slike

@@ -34,8 +34,30 @@ class NovaProjekcijaRequest extends FormRequest
             'pocetak' => 'required|date',
             'kraj' => 'required|date',
             'sala' => 'required|numeric',
-            'cena' => 'required|numeric',
+            'cena' => 'required|numeric|min:0',
             'mesta' => 'required|numeric|min:1',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'film_id.required' => 'Niste izabrali film',
+            'film_id.exists' => 'Film ne postoji u bazi',
+            'termin.required' => 'Termin filma je obavezan',
+            'termin.date_format' => 'Termin mora biti u formatu vremena hh:mm',
+            'pocetak.required' => 'Početni datum je obavezan',
+            'pocetak.date' => 'Početni datum nije u ispravnom formatu',
+            'kraj.required' => 'Krajnji datum je obavezan',
+            'kraj.date' => 'Krajnji datum nije u ispravnom formatu',
+            'sala.required' => 'Sala je obavezna',
+            'sala.numeric' => 'Sala mora biti broj',
+            'cena.required' => 'Cena je obavezna',
+            'cena.numeric' => 'Cena mora biti broj',
+            'cena.min' => 'Cena mora biti veća od 0',
+            'mesta.required' => 'Broj mesta je obavezan',
+            'mesta.numeric' => 'Broj mesta nije ispravan, mora biti numerik',
+            'mesta.min' => 'Minimalan broj mesta je 1',
         ];
     }
 

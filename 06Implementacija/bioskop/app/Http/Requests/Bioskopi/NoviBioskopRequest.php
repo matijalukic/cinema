@@ -31,6 +31,16 @@ class NoviBioskopRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'naziv.required' => 'Naziv bioskopa je obavezan',
+            'naziv.max' => 'Naziv može sadržati najviše 20 karaktera',
+            'adresa.required' => 'Adresa je obavezna',
+            'adresa.max' => 'Adresa može sadržati najviše 30 karaktera',
+        ];
+    }
+
     public function persist()
     {
 
