@@ -36,4 +36,14 @@ class Zaposleni extends Authenticatable
     {
         return $this -> hasOne(\App\Bioskop::class, 'id', 'bioskop_id');
     }
+
+    /**
+     * Proverava da li je ovaj zaposleni administrator
+     *
+     * @return bool
+     */
+    public function jeAdministrator()
+    {
+        return Administrator::where('id', $this -> id) -> exists();
+    }
 }

@@ -36,7 +36,10 @@ class BrisanjeNalogaRequest extends FormRequest
     {
         if($this->zaposlen)
         foreach($this->zaposlen as $IDzaposlen) {
-            Zaposleni::find($IDzaposlen)->delete();
+            $zaposlen = Zaposleni::find($IDzaposlen);
+            // administrator ne moze da obrise administratore
+            if(!$zaposlen -> jeAdministrator())
+                $zaposlen ->delete();
         }
 
         if($this->korisnik)
