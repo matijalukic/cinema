@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Hash;
  *
  * Class GostController
  * @package App\Http\Controllers
+ *
+ * @author Aleksandar Mijuskovic 580/15
+ * @version 1.0
  */
 class GostController extends Controller
 {

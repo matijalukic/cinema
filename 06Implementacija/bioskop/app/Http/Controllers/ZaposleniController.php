@@ -5,6 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Zaposleni\LoginRequest;
 use Illuminate\Http\Request;
 
+/**
+ * Class ZaposleniController
+ * @package App\Http\Controllers
+ *
+ * @author Aleksandar Mijuskovic 580/15
+ *
+ * @version 1.0
+ */
 class ZaposleniController extends Controller
 {
     public function __construct()

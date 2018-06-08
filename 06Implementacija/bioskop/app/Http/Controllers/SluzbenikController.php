@@ -18,10 +18,16 @@ use Illuminate\Support\Facades\DB;
  *
  * Class SluzbenikController
  * @package App\Http\Controllers
+ *
+ * @author Matija Lukic 622/15
+ *
+ * @version 1.0
+ *
  */
 class SluzbenikController extends Controller
 {
-    /** Ucitava midllwware sluzbenik
+    /**
+     * Ucitava midllwware sluzbenik
      * SluzbenikController constructor.
      */
     public function __construct()

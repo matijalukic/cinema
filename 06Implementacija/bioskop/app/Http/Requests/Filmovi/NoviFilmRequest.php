@@ -6,6 +6,15 @@ use App\Film;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
+
+/**
+ * Class NoviFilmRequest perzistira zahtev novog filma
+ * @package App\Http\Requests\Filmovi
+ *
+ * @author Luka Knezevic 439/15
+ *
+ * @version 1.0
+ */
 class NoviFilmRequest extends FormRequest
 {
     /**

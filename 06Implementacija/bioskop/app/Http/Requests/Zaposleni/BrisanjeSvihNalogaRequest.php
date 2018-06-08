@@ -6,6 +6,14 @@ use App\Korisnik;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class BrisanjeSvihNalogaRequest
+ * @package App\Http\Requests\Zaposleni
+ *
+ * @author Luka Knezevic 439/15
+ *
+ * @version 1.0
+ */
 class BrisanjeSvihNalogaRequest extends FormRequest
 {
     /**

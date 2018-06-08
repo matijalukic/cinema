@@ -21,6 +21,10 @@ use Mockery\Exception;
  *
  * Class AdministratorController
  * @package App\Http\Controllers
+ *
+ * @author Luka Knezevic 439/15
+ * @author Nikola Zlatic 575/15
+ * @version 1.0
  */
 class AdministratorController extends Controller
 {

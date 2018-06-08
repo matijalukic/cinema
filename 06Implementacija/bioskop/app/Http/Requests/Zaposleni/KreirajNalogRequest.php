@@ -11,6 +11,14 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
+/**
+ * Class KreirajNalogRequest kreira nalog zaposlneog korisnika na zahtev administratora
+ * @package App\Http\Requests\Zaposleni\
+ *
+ * @author Luka Knezevic 439/15
+ *
+ * @version 1.0
+ */
 class KreirajNalogRequest extends FormRequest
 {
     /**

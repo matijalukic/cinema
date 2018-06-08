@@ -18,6 +18,10 @@ use Mockery\Exception;
  *
  * Class MenadzerController
  * @package App\Http\Controllers
+ *
+ * @author Matija Lukic 622/15
+ *
+ * @version 1.0
  */
 class MenadzerController extends Controller
 {
@@ -28,7 +32,7 @@ class MenadzerController extends Controller
 
 
     /**
-     * Ispisuje formular za dodavanje projekcije
+     * Prikazuje formular za dodavanje projekcije
      */
     public function dodajProjekciju()
     {

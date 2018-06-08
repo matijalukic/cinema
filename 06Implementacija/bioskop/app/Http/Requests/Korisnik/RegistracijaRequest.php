@@ -4,6 +4,15 @@ namespace App\Http\Requests\Korisnik;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
+/**
+ * Class RegistracijaRequest perzistira zahtev za registraciju user
+ * @package App\Http\Requests\Korisnik
+ *
+ * @author Aleksandar Mijuskovic 580/15
+ *
+ * @version 1.0
+ */
 class RegistracijaRequest extends FormRequest
 {
     /**

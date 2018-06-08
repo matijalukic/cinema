@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Bioskop;
 use App\Film;
+use App\Http\Requests\Filmovi\IzmenaFilmaRequest;
 use App\Http\Requests\Filmovi\PretragaFilmovaRequest;
 use App\Http\Requests\Bioskopi\ProjekcijeRequest;
 use App\Projekcija;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ *
+ * @author Matija Lukic 622/15
+ * @author Nikola Zlatic 575/15
+ * @version 1.0
+ */
 class HomeController extends Controller
 {
     /**
@@ -24,28 +33,6 @@ class HomeController extends Controller
         ]);
 	}
 
-	public function izmenaFilma($id)
-    {
-        $film = Film::findOrFail($id);
-
-        return view('zaposleni.izmenafilma',[
-            'film' => $film
-        ]);
-    }
-
-    public function izmenaFilmaPost(IzmenaFilmaRequest $request)
-    {
-        try{
-            $request -> persist();
-            session() -> flash('success', 'Uspešan unos bioskopa!');
-        }
-        catch(\Exception $e){
-            session() -> flash('error', $e -> getMessage());
-        }
-        return redirect() -> back();
-    }
-
-
     /**
      * Vraca view koji obavestava korisnika da on nema dozvolu za pristup
      *
@@ -56,6 +43,12 @@ class HomeController extends Controller
         return view('dozvola');
     }
 
+    /**
+     * Prikaz liste filmova
+     *
+     * @param PretragaFilmovaRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function filmovi(PretragaFilmovaRequest $request)
     {
         $filmovi  = $request -> filmovi();
@@ -66,6 +59,13 @@ class HomeController extends Controller
             ]);
     }
 
+    /**
+     * Prikaz projekcija bioskopa, sa zadatim kriterijumom u okviru $request
+     *
+     * @param ProjekcijeRequest $request
+     * @param Bioskop $bioskop
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function bioskop(ProjekcijeRequest $request, Bioskop $bioskop)
     {
         $film = null;
@@ -96,6 +96,13 @@ class HomeController extends Controller
             ]);
     }
 
+    /**
+     * Prikazuje sve projekcije filma i zadatim kriterijumom
+     *
+     * @param ProjekcijeRequest $request
+     * @param Film $film
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function film(ProjekcijeRequest $request, Film $film)
     {
         $bioskop = null;
@@ -127,6 +134,12 @@ class HomeController extends Controller
             ]);
     }
 
+    /**
+     * Prikazuje projekcije sa zadatim kriterijumom u okvviru $request
+     *
+     * @param ProjekcijeRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function projekcije(ProjekcijeRequest $request)
     {
 

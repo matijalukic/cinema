@@ -22,6 +22,11 @@ use Illuminate\Database\MySqlConnection;
  *
  * Class KorisnikController
  * @package App\Http\Controllers
+ *
+ * @author Aleksandar Mijuskovic 580/15
+ * @author Matija Lukic 622/15
+ *
+ * @version 1.0
  */
 class KorisnikController extends Controller
 {

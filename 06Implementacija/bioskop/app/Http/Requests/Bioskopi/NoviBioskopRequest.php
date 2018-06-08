@@ -6,6 +6,14 @@ use App\Bioskop;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class NoviBioskopRequest perzistira zahtev za dodavanje novog bioskopa
+ * @package App\Http\Requests\Bioskopi
+ *
+ * @author Nikola Zlatic 575/15
+ *
+ * @version 1.0
+ */
 class NoviBioskopRequest extends FormRequest
 {
     /**

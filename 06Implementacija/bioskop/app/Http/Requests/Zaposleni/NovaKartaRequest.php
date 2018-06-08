@@ -4,6 +4,14 @@ namespace App\Http\Requests\Zaposleni;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class NovaKartaRequest perzistira zahtev sluzbenika za prodaju karte
+ * @package App\Http\Requests\Zaposleni
+ *
+ * @author Matija Lukic 622/15
+ *
+ * @version 1.0
+ */
 class NovaKartaRequest extends FormRequest
 {
     /**

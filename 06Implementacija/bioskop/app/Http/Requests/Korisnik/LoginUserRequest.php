@@ -8,6 +8,14 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * Class LoginUserRequest perzistira zahtev za login user
+ * @package App\Http\Requests\Korisnik
+ *
+ * @author Aleksandar Mijuskovic 580/15
+ *
+ * @version 1.0
+ */
 class LoginUserRequest extends FormRequest
 {
     /**

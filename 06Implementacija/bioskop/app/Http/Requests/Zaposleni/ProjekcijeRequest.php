@@ -4,6 +4,14 @@ namespace App\Http\Requests\Zaposleni;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class ProjekcijeRequest filtrira projekcije na zahtev menadzer u kriterijumu datuma filma i sale
+ * @package App\Http\Requests\Zaposleni
+ *
+ * @author Matija Lukic 622/15
+ *
+ * @version 1.0
+ */
 class ProjekcijeRequest extends FormRequest
 {
     /**

@@ -7,6 +7,14 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
+/**
+ * Class PretragaFilmovaRequest perzistira zahtev za pretragu filmova po kriterijumu
+ * @package App\Http\Requests\Filmovi
+ *
+ * @author Matija Lukic 622/15
+ *
+ * @version 1.0
+ */
 class PretragaFilmovaRequest extends FormRequest
 {
     /**

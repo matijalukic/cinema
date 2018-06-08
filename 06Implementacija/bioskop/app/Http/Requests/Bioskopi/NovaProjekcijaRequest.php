@@ -10,6 +10,14 @@ use App\Repertoar;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class NovaProjekcijaRequest perizstira nove projekcije na zahtev menadzera
+ * @package App\Http\Requests\Bioskopi
+ *
+ * @author Matija Lukic 622/15
+ *
+ * @version 1.0
+ */
 class NovaProjekcijaRequest extends FormRequest
 {
     /**

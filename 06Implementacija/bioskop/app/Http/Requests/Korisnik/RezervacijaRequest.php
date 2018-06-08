@@ -4,6 +4,14 @@ namespace App\Http\Requests\korisnik;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class RezervacijaRequest perzistira zahtev za rezervaciju karte korisnika
+ * @package App\Http\Requests\Korisnik
+ *
+ * @author Aleksandar Mijuskovic 580/15
+ *
+ * @version 1.0
+ */
 class RezervacijaRequest extends FormRequest
 {
     /**

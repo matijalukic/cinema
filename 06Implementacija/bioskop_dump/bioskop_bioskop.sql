@@ -1,0 +1,4 @@
+INSERT INTO bioskop.bioskop (id, naziv, adresa, created_at, updated_at) VALUES (1, 'Cineplexx Big', 'Visnjicka', '2018-06-07 20:25:17', '2018-06-07 20:25:17');
+INSERT INTO bioskop.bioskop (id, naziv, adresa, created_at, updated_at) VALUES (2, 'Cineplexx Delta', 'Jurija Gagarina 14', '2018-06-07 20:25:17', '2018-06-07 20:25:17');
+INSERT INTO bioskop.bioskop (id, naziv, adresa, created_at, updated_at) VALUES (3, 'Cineplexx Usce', 'Bulevar Mihajla Pupina 4', '2018-06-07 20:25:17', '2018-06-07 20:25:17');
+INSERT INTO bioskop.bioskop (id, naziv, adresa, created_at, updated_at) VALUES (4, 'Kombank dvorana', 'Dečanska 14', '2018-06-07 20:25:17', '2018-06-07 20:25:17');

@@ -6,6 +6,14 @@ use App\Projekcija;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class ProjekcijeRequest validira parametre za pretragu projekcija
+ * @package App\Http\Requests\Bioskopi
+ *
+ * @author Nikola Zlatic 575/15
+ *
+ * @version 1.0
+ */
 class ProjekcijeRequest extends FormRequest
 {
     /**

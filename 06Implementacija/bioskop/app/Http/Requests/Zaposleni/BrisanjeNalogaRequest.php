@@ -6,6 +6,14 @@ use App\Korisnik;
 use App\Zaposleni;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class BrisanjeNalogaRequest
+ * @package App\Http\Requests\zaposleni
+ *
+ * @author Luka Knezevic 439/15
+ *
+ * @version 1.0
+ */
 class BrisanjeNalogaRequest extends FormRequest
 {
     /**
