@@ -2,5 +2,5 @@
 ## Tim : PSIho
 * Matija Lukic
 * Aleksandar Mijuskovic
-* Luka Knezevic
+* Luka Knezevic (@luka014) 
 * Nikola Zlatic
